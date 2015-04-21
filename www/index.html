@@ -27,6 +27,14 @@
         <link rel="stylesheet" type="text/css" href="css/HeroesOfAldaria.css" />
         <title>Hello World</title>
 		<script src = "js/HeroesOfAldaria.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script>
+		$(document).ready(function()
+		{
+		$(document).on("swipe",scrollWin()	);                       
+		});
+</script>
     </head>
     <body>
 		<img src="img/background.jpg" width = "300%" height = "300%"  z-index = "1"></img>

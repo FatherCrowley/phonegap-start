@@ -1,1 +1,11 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
 /*body {overflow: hidden; }
+@viewport{height:device-height}
+@viewport{width:device-width}
+@-ms-viewport{height:device-height}
+@-ms-viewport{width:device-width}

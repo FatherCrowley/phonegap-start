@@ -14,7 +14,7 @@ var startX
 var startY
 window.addEventListener('load', function() 
 	 {
-        document.body.addEventListener('touchstart', function(e) 
+        document.body.addEventListener('touchstart', function(event) 
 				{
 					//e.preventDefault();
 					startX = event.touches[0].pageX;
@@ -24,9 +24,9 @@ window.addEventListener('load', function()
 	 
 window.addEventListener('load', function() 
 	 {
-        document.body.addEventListener('touchmove', function(e) 
+        document.body.addEventListener('touchmove', function(event) 
 				{
-					e.preventDefault();
+					event.preventDefault();
 					xViewPos += event.touches[0].pageX - startX;
 					yViewPos += event.touches[0].pageY - startY;
 					window.scrollTo(xViewPos, yViewPos);                    

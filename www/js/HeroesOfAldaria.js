@@ -71,7 +71,7 @@ function ScrollControl()
 					xScroll = 1;
 					yScroll = 0;
 				}
-			if(xViewPos%panelWidth > panelWidth-30)
+			if(xViewPos%panelWidth > panelWidth-100)
 				{
 					needToScroll = true;
 					xScroll = -1;

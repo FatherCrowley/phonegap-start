@@ -10,14 +10,25 @@ var needToScroll;
 var scrollSpeed;
 var xScroll;
 var yScroll;
-
+var startX
+var startY
+window.addEventListener('load', function() 
+	 {
+        document.body.addEventListener('touchstart', function(e) 
+				{
+					//e.preventDefault();
+					startX = event.touches[0].pageX;
+					startY = event.touches[0].pageY;					                
+                }, false);
+     }, false);
+	 
 window.addEventListener('load', function() 
 	 {
         document.body.addEventListener('touchmove', function(e) 
 				{
 					e.preventDefault();
-					xViewPos = event.touches[0].pageX;
-					yViewPos = event.touches[0].pageY
+					xViewPos += event.touches[0].pageX - startX;
+					yViewPos += event.touches[0].pageY - startY;
 					window.scrollTo(xViewPos, yViewPos);                    
                 }, false);
      }, false);
@@ -67,7 +78,7 @@ var MainLoop = function()
 	{	
 		if(!init)
 			Initialize();
-		//ScrollControl();
+		ScrollControl();
 	};
 	setInterval( MainLoop, 1000 /fps );
 	

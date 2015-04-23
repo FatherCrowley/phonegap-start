@@ -56,7 +56,7 @@ function Initialize ()
 		panelWidth   = screenWidth /  3;
 		panelHeight  = screenHeight / 3;
 		needToScroll = true;
-		scrollSpeed = 10;
+		scrollSpeed = 25;
 		init = true;
 		limitY = true;
 	}
@@ -65,13 +65,13 @@ function ScrollControl()
 		
 		if(!needToScroll)
 		{
-			if(xViewPos%panelWidth > 10)
+			if(xViewPos%panelWidth > (10 + scrollSpeed))
 				{
 					needToScroll = true;
 					xScroll = 1;
 					yScroll = 0;
 				}
-			if(xViewPos%panelWidth > panelWidth-100)
+			if(xViewPos%panelWidth > panelWidth-(10+scrollSpeed))
 				{
 					needToScroll = true;
 					xScroll = -1;
@@ -79,12 +79,9 @@ function ScrollControl()
 				}
 		}
 		if(needToScroll)
-		{
-			window.scrollTo(xViewPos+scrollSpeed*xScroll, yViewPos+scrollSpeed*yScroll);
-			xViewPos += scrollSpeed*xScroll;    
-			yViewPos += scrollSpeed*yScroll;
+		{			
 			console.log(xViewPos%panelWidth);
-			if(xViewPos%panelWidth < 10)
+			if(xViewPos%panelWidth < (10 + scrollSpeed))
 				{
 					if(xViewPos < panelWidth)
 					{
@@ -107,6 +104,12 @@ function ScrollControl()
 					window.scrollTo(xViewPos, yViewPos);
 					
 					needToScroll = false;
+				}
+				else
+				{				
+				xViewPos += scrollSpeed*xScroll;    
+				yViewPos += scrollSpeed*yScroll;
+				window.scrollTo(xViewPos+scrollSpeed*xScroll, yViewPos+scrollSpeed*yScroll);				
 				}
 		}
 		

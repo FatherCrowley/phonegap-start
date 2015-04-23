@@ -63,13 +63,13 @@ function ScrollControl()
 	{
 		if(!needToScroll)
 		{
-			if(xViewPos%panelWidth > 10)
+			if(xViewPos%panelWidth > 2)
 				{
 					needToScroll = true;
 					xScroll = 1;
 					yScroll = 0;
 				}
-			if(xViewPos%panelWidth > panelWidth-10)
+			if(xViewPos%panelWidth > panelWidth-2)
 				{
 					needToScroll = true;
 					xScroll = -1;
@@ -82,7 +82,7 @@ function ScrollControl()
 			xViewPos += scrollSpeed*xScroll;    
 			yViewPos += scrollSpeed*yScroll;
 			//console.log(xViewPos%panelWidth);
-			if(xViewPos%panelWidth < 10)
+			if(xViewPos%panelWidth < 2)
 				{
 					if(xViewPos < panelWidth)
 					{

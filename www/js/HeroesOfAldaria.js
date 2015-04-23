@@ -13,8 +13,12 @@ var yScroll;
 
 window.addEventListener('load', function() 
 	 {
-        document.body.addEventListener('touchmove', function(e) {
-                    //e.preventDefault();
+        document.body.addEventListener('touchmove', function(e) 
+				{
+					e.preventDefault();
+					xViewPos = event.touches[0].pageX;
+					yViewPos = event.touches[0].pageY
+					window.scrollTo(xViewPos, yViewPos);                    
                 }, false);
      }, false);
 	 

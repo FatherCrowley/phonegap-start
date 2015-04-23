@@ -27,6 +27,7 @@ window.addEventListener('load', function()
 	 {
         document.body.addEventListener('touchmove', function(event) 
 				{
+					console.log(needToScroll);
 					event.preventDefault();
 					if(!needToScroll)
 					{					
@@ -61,15 +62,16 @@ function Initialize ()
 	}
 function ScrollControl() 
 	{
+		
 		if(!needToScroll)
 		{
-			if(xViewPos%panelWidth > 2)
+			if(xViewPos%panelWidth > 10)
 				{
 					needToScroll = true;
 					xScroll = 1;
 					yScroll = 0;
 				}
-			if(xViewPos%panelWidth > panelWidth-2)
+			if(xViewPos%panelWidth > panelWidth-30)
 				{
 					needToScroll = true;
 					xScroll = -1;
@@ -81,8 +83,8 @@ function ScrollControl()
 			window.scrollTo(xViewPos+scrollSpeed*xScroll, yViewPos+scrollSpeed*yScroll);
 			xViewPos += scrollSpeed*xScroll;    
 			yViewPos += scrollSpeed*yScroll;
-			//console.log(xViewPos%panelWidth);
-			if(xViewPos%panelWidth < 2)
+			console.log(xViewPos%panelWidth);
+			if(xViewPos%panelWidth < 10)
 				{
 					if(xViewPos < panelWidth)
 					{

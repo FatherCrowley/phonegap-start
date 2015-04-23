@@ -67,7 +67,7 @@ var MainLoop = function()
 	{	
 		if(!init)
 			Initialize();
-		ScrollControl();
+		//ScrollControl();
 	};
 	setInterval( MainLoop, 1000 /fps );
 	

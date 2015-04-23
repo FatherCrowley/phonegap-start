@@ -14,7 +14,7 @@ var yScroll;
 window.addEventListener('load', function() 
 	 {
         document.body.addEventListener('touchmove', function(e) {
-                    e.preventDefault();
+                    //e.preventDefault();
                 }, false);
      }, false);
 	 

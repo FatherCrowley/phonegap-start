@@ -12,7 +12,10 @@ var xScroll;
 var yScroll;
 var startX;
 var startY;
+var dist;
 var limitY;
+
+
 window.addEventListener('load', function() 
 	 {
         document.body.addEventListener('touchstart', function(event) 
@@ -31,14 +34,29 @@ window.addEventListener('load', function()
 					event.preventDefault();
 					if(!needToScroll)
 					{					
-					xViewPos -= event.touches[0].pageX - startX;
+					//xViewPos -= event.touches[0].pageX - startX;
+					if(event.touches[0].pageX - startX < 0)
+					{
+						needToScroll = true;
+						dist = 0;
+						xScroll = 1;
+						yScroll = 0;
+					}
+					
+					if(event.touches[0].pageX - startX > 0)
+					{
+						needToScroll = true;
+						dist = 0;
+						xScroll = -1;
+						yScroll = 0;
+					}
+					
 					if(!limitY)
 						{
 						yViewPos -= event.touches[0].pageY - startY;
 						}
 					//console.log("event x: "+ event.touches[0].pageX + " startX :" + startX + " Difference: " + (event.touches[0].pageX - startX));
-					//console.log("event y: "+ event.touches[0].pageY + " startY :" + startY + " Difference: " + (event.touches[0].pageY - startY));
-					window.scrollTo(xViewPos, yViewPos); 
+					//console.log("event y: "+ event.touches[0].pageY + " startY :" + startY + " Difference: " + (event.touches[0].pageY - startY));					
 					}
                 }, false);
      }, false);
@@ -55,62 +73,130 @@ function Initialize ()
 		screenWidth  = Math.max( body.scrollWidth, body.offsetWidth,html.clientWidth, html.scrollWidth, html.offsetWidth );
 		panelWidth   = screenWidth /  3;
 		panelHeight  = screenHeight / 3;
-		needToScroll = true;
+		needToScroll = false;
 		scrollSpeed = 25;
 		init = true;
 		limitY = true;
+		dist = 0;
 	}
 function ScrollControl() 
 	{
-		
+		/*
 		if(!needToScroll)
 		{
-			if(xViewPos%panelWidth > (10 + scrollSpeed))
+			if(xViewPos%panelWidth > (scrollSpeed))
 				{
 					needToScroll = true;
 					xScroll = 1;
 					yScroll = 0;
 				}
-			if(xViewPos%panelWidth > panelWidth-(10+scrollSpeed))
+			if(xViewPos%panelWidth > panelWidth-scrollSpeed)
 				{
 					needToScroll = true;
 					xScroll = -1;
 					yScroll = 0;
 				}
 		}
+		
+		
 		if(needToScroll)
 		{			
-			console.log(xViewPos%panelWidth);
-			if(xViewPos%panelWidth < (10 + scrollSpeed))
-				{
-					if(xViewPos < panelWidth)
-					{
-						xViewPos = 0;
-						limitY = true;
-					}
-					
+				//console.log(xViewPos%panelWidth);
+				if(xScroll == 1)
+				{										
 					if((xViewPos >= panelWidth)&&(xViewPos <= 2*panelWidth))
 					{
 						xViewPos = panelWidth;
 						limitY = true //tochange
-					}
-					
+						needToScroll = false;
+					}					
 					if(xViewPos > panelWidth*2)
 					{
 						xViewPos = panelWidth*2;
 						limitY = true;
-					}
-					
+						needToScroll = false;
+					}					
 					window.scrollTo(xViewPos, yViewPos);
-					
-					needToScroll = false;
+									
 				}
-				else
+				
+				if(xScroll = -1)
+				{										
+					if((xViewPos <= panelWidth)&&(xViewPos > 0))
+					{
+						xViewPos = panelWidth;
+						limitY = true //tochange
+						needToScroll = false;
+					}					
+					if(xViewPos < 0)
+					{
+						xViewPos = 0;
+						limitY = true;
+						needToScroll = false;
+					}					
+					window.scrollTo(xViewPos, yViewPos);
+									
+				}
+				
+				if(needToScroll)
 				{				
-				xViewPos += scrollSpeed*xScroll;    
-				yViewPos += scrollSpeed*yScroll;
-				window.scrollTo(xViewPos+scrollSpeed*xScroll, yViewPos+scrollSpeed*yScroll);				
+					xViewPos += scrollSpeed*xScroll;    
+					yViewPos += scrollSpeed*yScroll;
+					window.scrollTo(xViewPos+scrollSpeed*xScroll, yViewPos+scrollSpeed*yScroll);				
 				}
+		}
+		*/
+		if(needToScroll)
+		{
+			if(xScroll == 1)					
+				dist += scrollSpeed*xScroll;
+				
+			if(xScroll == -1)					
+				dist += (0 - scrollSpeed)*xScroll;
+			
+			xViewPos += scrollSpeed*xScroll;    
+			yViewPos += scrollSpeed*yScroll;
+			window.scrollTo(xViewPos+scrollSpeed*xScroll, yViewPos+scrollSpeed*yScroll);
+			
+			console.log(dist);
+			if(dist>= panelWidth)
+			{
+				if(xScroll == 1)
+				{										
+					if((xViewPos >= panelWidth)&&(xViewPos <= 2*panelWidth))
+					{
+						xViewPos = panelWidth;
+						limitY = true //tochange
+						needToScroll = false;
+					}					
+					if(xViewPos > panelWidth*2)
+					{
+						xViewPos = panelWidth*2;
+						limitY = true;
+						needToScroll = false;
+					}					
+					window.scrollTo(xViewPos, yViewPos);
+									
+				}
+				
+				if(xScroll = -1)
+				{										
+					if((xViewPos <= panelWidth)&&(xViewPos > 0))
+					{
+						xViewPos = panelWidth;
+						limitY = true //tochange
+						needToScroll = false;
+					}					
+					if(xViewPos < 0)
+					{
+						xViewPos = 0;
+						limitY = true;
+						needToScroll = false;
+					}					
+					window.scrollTo(xViewPos, yViewPos);
+									
+				}
+			}
 		}
 		
 	}

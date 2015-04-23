@@ -1,7 +1,7 @@
 var xViewPos;
 var yViewPos;
 var init = false;
-var fps =  60 ;
+var fps =  30 ;
 var screenWidth;
 var screenHeight;
 var panelWidth;

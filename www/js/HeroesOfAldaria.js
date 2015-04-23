@@ -8,10 +8,14 @@ var panelWidth;
 var panelHeight;
 var needToScroll;
 var scrollSpeed;
+var xScroll;
+var yScroll;
 function Initialize ()
 	{
 		xViewPos = 0;
 		yViewPos = 0;
+		xScroll  = 0;
+		yScroll  = 0;
 		var body = document.body;
 		var html = document.documentElement;
 		screenHeight = Math.max( body.scrollHeight, body.offsetHeight,html.clientHeight, html.scrollHeight, html.offsetHeight );
@@ -24,10 +28,27 @@ function Initialize ()
 	}
 function ScrollControl() 
 	{
+		if(!needToScroll)
+		{
+			if(xViewPos%panelWidth > panelWidth/2)
+				{
+					needToScroll = true;
+					xScroll = 1;
+					yScroll = 0;
+				}
+		}
 		if(needToScroll)
-			window.scrollTo(xViewPos+scrollSpeed, yViewPos+scrollSpeed);
-		xViewPos += scrollSpeed;
-		yViewPos += scrollSpeed;	
+		{
+			window.scrollTo(xViewPos+scrollSpeed*xScroll, yViewPos+scrollSpeed*yScroll);
+			xViewPos += scrollSpeed*xScroll;
+			yViewPos += scrollSpeed*yScroll;	
+			if(xViewPos%panelWidth > panelWidth/2)
+				{
+					xView = (xViewPos/panelWidth)*panelWidth;
+					needToScroll = false;
+				}
+		}
+		
 	}
 
 var MainLoop = function() 
@@ -38,3 +59,9 @@ var MainLoop = function()
 	};
 	setInterval( MainLoop, 1000 /fps );
 	
+	
+	document.body.addEventListener('touchmove', function(e) 
+	{
+       e.preventDefault();
+    }, false);
+

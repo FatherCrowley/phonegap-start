@@ -37,16 +37,18 @@ window.addEventListener('load', function()
 					{
 					if((event.touches[0].pageX - startX) > (event.touches[0].pageY - startY ))
 					{
-						//limitY = true;
-						//limitX = false;
-						limitX = true;
-						limitY = false;
+						limitY = true;
+						limitX = false;
+						//limitX = true;
+						//limitY = false;
 						console.log("only x");
 					}
 					else
 					{
-						limitX = true;
-						limitY = false;
+						limitY = true;
+						limitX = false;
+						//limitX = true;
+						//limitY = false;
 						console.log("only y");
 					}
 					//xViewPos -= event.touches[0].pageX - startX;

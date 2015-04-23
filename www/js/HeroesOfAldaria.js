@@ -81,7 +81,7 @@ function ScrollControl()
 			window.scrollTo(xViewPos+scrollSpeed*xScroll, yViewPos+scrollSpeed*yScroll);
 			xViewPos += scrollSpeed*xScroll;    
 			yViewPos += scrollSpeed*yScroll;
-			console.log(xViewPos%panelWidth);
+			//console.log(xViewPos%panelWidth);
 			if(xViewPos%panelWidth < 10)
 				{
 					if(xViewPos < panelWidth)

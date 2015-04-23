@@ -74,7 +74,7 @@ function Initialize ()
 		panelWidth   = screenWidth /  3;
 		panelHeight  = screenHeight / 3;
 		needToScroll = false;
-		scrollSpeed = 25;
+		scrollSpeed = 55;
 		init = true;
 		limitY = true;
 		dist = 0;

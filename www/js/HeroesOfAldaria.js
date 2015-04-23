@@ -10,6 +10,14 @@ var needToScroll;
 var scrollSpeed;
 var xScroll;
 var yScroll;
+
+window.addEventListener('load', function() 
+	 {
+        document.body.addEventListener('touchmove', function(e) {
+                    e.preventDefault();
+                }, false);
+     }, false);
+	 
 function Initialize ()
 	{
 		xViewPos = 0;
@@ -60,8 +68,5 @@ var MainLoop = function()
 	setInterval( MainLoop, 1000 /fps );
 	
 	
-	document.body.addEventListener('touchmove', function(e) 
-	{
-       e.preventDefault();
-    }, false);
+	 
 

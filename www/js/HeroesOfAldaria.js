@@ -27,8 +27,10 @@ window.addEventListener('load', function()
         document.body.addEventListener('touchmove', function(event) 
 				{
 					event.preventDefault();
-					xViewPos += event.touches[0].pageX - startX;
-					yViewPos += event.touches[0].pageY - startY;
+					xViewPos -= event.touches[0].pageX - startX;
+					yViewPos -= event.touches[0].pageY - startY;
+					console.log("event x: "+ event.touches[0].pageX + " startX :" + startX + " Difference: " + (event.touches[0].pageX - startX));
+					console.log("event y: "+ event.touches[0].pageY + " startY :" + startY + " Difference: " + (event.touches[0].pageY - startY));
 					window.scrollTo(xViewPos, yViewPos);                    
                 }, false);
      }, false);
@@ -78,7 +80,7 @@ var MainLoop = function()
 	{	
 		if(!init)
 			Initialize();
-		ScrollControl();
+		//ScrollControl();
 	};
 	setInterval( MainLoop, 1000 /fps );
 	

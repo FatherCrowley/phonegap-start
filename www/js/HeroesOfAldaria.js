@@ -26,12 +26,15 @@ window.addEventListener('load', function()
 	 {
         document.body.addEventListener('touchmove', function(event) 
 				{
+					if(!needToScroll)
+					{
 					event.preventDefault();
 					xViewPos -= event.touches[0].pageX - startX;
 					yViewPos -= event.touches[0].pageY - startY;
 					console.log("event x: "+ event.touches[0].pageX + " startX :" + startX + " Difference: " + (event.touches[0].pageX - startX));
 					console.log("event y: "+ event.touches[0].pageY + " startY :" + startY + " Difference: " + (event.touches[0].pageY - startY));
-					window.scrollTo(xViewPos, yViewPos);                    
+					window.scrollTo(xViewPos, yViewPos); 
+					}
                 }, false);
      }, false);
 	 
@@ -67,7 +70,7 @@ function ScrollControl()
 			window.scrollTo(xViewPos+scrollSpeed*xScroll, yViewPos+scrollSpeed*yScroll);
 			xViewPos += scrollSpeed*xScroll;
 			yViewPos += scrollSpeed*yScroll;	
-			if(xViewPos%panelWidth > panelWidth/2)
+			if(xViewPos%panelWidth < panelWidth/2)
 				{
 					xView = (xViewPos/panelWidth)*panelWidth;
 					needToScroll = false;
@@ -80,7 +83,7 @@ var MainLoop = function()
 	{	
 		if(!init)
 			Initialize();
-		//ScrollControl();
+		ScrollControl();
 	};
 	setInterval( MainLoop, 1000 /fps );
 	

@@ -26,9 +26,9 @@ window.addEventListener('load', function()
 	 {
         document.body.addEventListener('touchmove', function(event) 
 				{
-					if(!needToScroll)
-					{
 					event.preventDefault();
+					if(!needToScroll)
+					{					
 					xViewPos -= event.touches[0].pageX - startX;
 					yViewPos -= event.touches[0].pageY - startY;
 					console.log("event x: "+ event.touches[0].pageX + " startX :" + startX + " Difference: " + (event.touches[0].pageX - startX));

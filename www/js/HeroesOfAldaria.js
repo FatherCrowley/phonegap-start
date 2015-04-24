@@ -17,12 +17,12 @@ var limitY;
 var limitX;
 var xSwipeAmount;
 var ySwipeAmount;
+var centerPannel;
 
 window.addEventListener('load', function() 
 	 {
         document.body.addEventListener('touchstart', function(event) 
-				{
-					//e.preventDefault();
+				{					
 					startX = event.touches[0].pageX;
 					startY = event.touches[0].pageY;
 					xSwipeAmount = 0;
@@ -46,25 +46,38 @@ window.addEventListener('load', function()
      document.body.addEventListener('touchend', function(event) 
 			{					
 				if(!needToScroll)				
-				{				
-					if(Math.abs(xSwipeAmount) > Math.abs(ySwipeAmount))
+				{		
+					if(centerPannel)
 					{
-						limitY = true;
-						limitX = false;
-						//limitX = true;
-						//limitY = false;
-						console.log("only x");
+						if(Math.abs(xSwipeAmount) > Math.abs(ySwipeAmount))
+						{
+							limitY = true;
+							limitX = false;		
+						}
+						else
+						{						
+							limitX = true;
+							limitY = false;							
+						}
 					}
 					else
 					{
-						//limitY = true;
-						//limitX = false;
 						limitX = true;
-						limitY = false;
-						console.log("only y");
+						limitY = true;
+						
+						if((Math.abs(xSwipeAmount) > Math.abs(ySwipeAmount))&&(yViewPos == panelHeight))
+						{
+							limitY = true;
+							limitX = false;	
+						}	
+						
+						if((Math.abs(xSwipeAmount) < Math.abs(ySwipeAmount))&&(yViewPos != panelHeight))
+						{
+							limitX = true;
+							limitY = false;							
+						}				
 					}
 					
-					//xViewPos -= event.touches[0].pageX - startX;
 					if(!limitX)
 					{
 						if(xSwipeAmount < 0)
@@ -103,13 +116,14 @@ window.addEventListener('load', function()
 							}
 						}				
 				}
+				if( needToScroll)
+					centerPannel = false;
                 }, false);
      }, false);
 	 
 function Initialize ()
 	{
-		xViewPos = 0;
-		yViewPos = 0;
+		
 		xScroll  = 0;
 		yScroll  = 0;
 		var body = document.body;
@@ -118,11 +132,15 @@ function Initialize ()
 		screenWidth  = Math.max( body.scrollWidth, body.offsetWidth,html.clientWidth, html.scrollWidth, html.offsetWidth );
 		panelWidth   = screenWidth /  3;
 		panelHeight  = screenHeight / 3;
+		xViewPos = panelWidth;
+		yViewPos = panelHeight;
 		needToScroll = false;
 		scrollSpeed = 55;
 		init = true;
 		limitY = true;
 		dist = 0;
+		centerPannel = true;
+		window.scrollTo(panelWidth,panelHeight);
 	}
 function ScrollControl() 
 	{
@@ -133,9 +151,8 @@ function ScrollControl()
 			dist += scrollSpeed;				
 			xViewPos += scrollSpeed*xScroll;    
 			yViewPos += scrollSpeed*yScroll;
-			window.scrollTo(xViewPos+scrollSpeed*xScroll, yViewPos+scrollSpeed*yScroll);
+			window.scrollTo(xViewPos+scrollSpeed*xScroll, yViewPos+scrollSpeed*yScroll);			
 			
-			console.log(dist);
 			if(yScroll == 0)
 			{
 				if(dist>= panelWidth)////////X axis navigation code;
@@ -145,14 +162,13 @@ function ScrollControl()
 					{										
 						if((xViewPos >= panelWidth)&&(xViewPos <= 2*panelWidth)) // panel 2 snapTo
 						{
-							xViewPos = panelWidth;
-							//limitY = false;//tochange
+							xViewPos = panelWidth;	
+							centerPannel = true;
 							needToScroll = false;
 						}					
 						if(xViewPos > panelWidth*2) // panel 3 snapTo
 						{
-							xViewPos = panelWidth*2;
-							//limitY = true;
+							xViewPos = panelWidth*2;							
 							needToScroll = false;
 						}					
 						window.scrollTo(xViewPos, yViewPos);
@@ -163,14 +179,13 @@ function ScrollControl()
 					{										
 						if((xViewPos <= panelWidth)&&(xViewPos > 0)) // panel 2 snapTo
 						{
-							xViewPos = panelWidth;
-							//limitY = false //tochange
+							xViewPos = panelWidth;	
+							centerPannel = true;
 							needToScroll = false;
 						}					
 						if(xViewPos < 0) // panel 3 snapTo
 						{
-							xViewPos = 0;
-							//limitY = true;
+							xViewPos = 0;							
 							needToScroll = false;
 						}					
 						window.scrollTo(xViewPos, yViewPos);
@@ -181,24 +196,20 @@ function ScrollControl()
 			
 				if(xScroll == 0)
 				{
-					if(dist>= panelHeight)////////X axis navigation code;
-					{
-						console.log("wtf");
-						//////Y axis navigation
+					if(dist>= panelHeight)////////Y axis navigation code;
+					{						
 						if(yScroll == 1) // scroll down
 						{										
 							if((yViewPos >= panelHeight)&&(yViewPos <= 2*panelHeight)) // snap to second panel
 							{
 								yViewPos = panelHeight;
-								//limitY = false;//tochange
-								//limitX = false;
+								centerPannel = true;
 								needToScroll = false;
 							}					
 							
 							if(yViewPos > panelHeight*2)  // snap to third panel
 							{
-								yViewPos = panelHeight*2;
-								//limitX = true;
+								yViewPos = panelHeight*2;								
 								needToScroll = false;
 							}					
 							window.scrollTo(xViewPos, yViewPos);									
@@ -209,14 +220,12 @@ function ScrollControl()
 							if((yViewPos <= panelHeight)&&(yViewPos > 0)) // snap to second pannel
 							{
 								yViewPos = panelHeight;
-								//limitY = false; //tochange
-								//limitX = false;
+								centerPannel = true;
 								needToScroll = false;
 							}					
 							if(yViewPos < 0) // snap to first pannel
 							{
-								yViewPos = 0;
-								//limitX = true;
+								yViewPos = 0;								
 								needToScroll = false;
 							}					
 							window.scrollTo(xViewPos, yViewPos);

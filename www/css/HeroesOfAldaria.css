@@ -300,11 +300,12 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 {
 	position: absolute; 
 	left: 104.5%; 
-	top: 114%; 
+	top: 108%; 
 	width : 69%; 
 	height :70%;;	
 	padding:10%;
 	background: red;
+	text-align:center;
 }
 
 .StoryChoice
@@ -312,6 +313,8 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 	display: block;	
 	margin-left:auto;
 	margin-right:auto;
-	margin-bottom: 0;
+	margin-bottom: 1%;
 	margin-top: 0;
+	width: 105%;
+	height:10%;
 }

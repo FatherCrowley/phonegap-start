@@ -33,3 +33,8 @@ function SetEventsLocation(location)
 	}
 	console.log("You went to " + location);
 }
+
+function ResetChar()
+{
+	console.log("You reset Everything! you bastard");
+}

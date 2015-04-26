@@ -71,6 +71,45 @@ html, body
 	 font-size: 8vw;
 }
 
+#S2
+{	
+	 background-color: transparent; 
+	 border-color: transparent; 
+	 outline: 0;
+	 position: absolute; 
+	 left: 104.5%; 
+	 top: 15%; 
+	 width : 85%; 
+	 height :17.5%;	
+	 font-size: 8vw;
+}
+
+#S3
+{	
+	 background-color: transparent; 
+	 border-color: transparent; 
+	 outline: 0;
+	 position: absolute; 
+	 left: 104.5%; 
+	 top: 25%; 
+	 width : 85%; 
+	 height :17.5%;	
+	 font-size: 8vw;
+}
+
+#S4
+{	
+	 background-color: transparent; 
+	 border-color: transparent; 
+	 outline: 0;
+	 position: absolute; 
+	 left: 104.5%; 
+	 top: 35%; 
+	 width : 85%; 
+	 height :17.5%;	
+	 font-size: 8vw;
+}
+
 
 
 
@@ -94,7 +133,7 @@ html, body
 	-webkit-flex: 1;
 	/* Just some color and shape */
 	text-align:center;
-	flex-grow:2;
+	flex-grow:1.5;
 }
 .flex-item3 
 {
@@ -146,4 +185,17 @@ input[type=range]:focus {
 
 input[type=range]:focus::-webkit-slider-runnable-track {
     background: #ccc;
+}
+
+#B5
+{
+	 background-color: red; 
+	 border-color: transparent; 
+	 outline: 0;	 
+     position: absolute; 
+	 left: 104.5%; 
+	 top: 81%; 
+	 width : 90%; 
+	 height :17%;	
+	 font-size: 8vw;
 }

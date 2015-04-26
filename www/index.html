@@ -52,40 +52,40 @@
 		<img src="img/background.jpg" width = "300%" height =  "300%"  z-index = "1"></img>
 		
         <!-- this is the map screen --> 
-		<button id = "B1" onclick="SetEventsLocation('Bowersvile')"><img id="Bowersvile" src="img/Loc4.png" width = 100%; height = 100%></button>
-		<button id = "B2" onclick="SetEventsLocation('The Fields Of Devilly')"><img  id="TheFieldsOfDevilly" src="img/Loc1.png" width = 100%; height = 100%></button>
-		<button id = "B3" onclick="SetEventsLocation('Golzbergium')"><img  id="Golzbergium" src="img/Loc2.png" width = 100%; height = 100%></button>
-		<button id = "B4" onclick="SetEventsLocation('Priceton')"><img  id="Priceton" src="img/Loc3.png" width = 100%; height = 100%></button>
+	<button id = "B1" onclick="SetEventsLocation('Bowersvile')"><img id="Bowersvile" src="img/Loc4.png" width = 100%; height = 100%></button>
+	<button id = "B2" onclick="SetEventsLocation('The Fields Of Devilly')"><img  id="TheFieldsOfDevilly" src="img/Loc1.png" width = 100%; height = 100%></button>
+	<button id = "B3" onclick="SetEventsLocation('Golzbergium')"><img  id="Golzbergium" src="img/Loc2.png" width = 100%; height = 100%></button>
+	<button id = "B4" onclick="SetEventsLocation('Priceton')"><img  id="Priceton" src="img/Loc3.png" width = 100%; height = 100%></button>
         
         <!-- this is the stats code -->
          
-        <div id= "S1" class="flex-container">
+    <div id= "S1" class="flex-container">
 		<div class ="flex-item1"><p class="Left">Attack</p></div>
 		<div class ="flex-item2"><input type = "range" min = "0" max = "100" value = "25" readonly = "readonly" /></div>
 		<div class ="flex-item3"><p class="Right">Defence</p></div>
 		</div>
         
-         <div id= "S2" class="flex-container">
+    <div id= "S2" class="flex-container">
 		<div class ="flex-item1"><p class="Left">Tact</p></div>
 		<div class ="flex-item2"><input type = "range" min = "0" max = "100" value = "25" readonly = "readonly" /></div>
 		<div class ="flex-item3"><p class="Right">Rage</p></div>
 		</div>
         
-         <div id= "S3" class="flex-container">
+    <div id= "S3" class="flex-container">
 		<div class ="flex-item1"><p class="Left">Magic</p></div>
 		<div class ="flex-item2"><input type = "range" min = "0" max = "100" value = "25" readonly = "readonly" /></div>
 		<div class ="flex-item3"><p class="Right">Mundane</p></div>
 		</div>
         
-        <div id= "S4" class="flex-container">
+    <div id= "S4" class="flex-container">
 		<div class ="flex-item1"><p class="Left">Fame</p></div>
 		<div class ="flex-item2"><input type = "range" min = "0" max = "100" value = "25" readonly = "readonly" /></div>
 		<div class ="flex-item3"><p class="Right">Infamy</p></div>
 		</div>
         
-        <button id = "B5" onclick="ResetChar()">Reset Everything</button> 
+    <button id = "B5" onclick="ResetChar()">Reset Everything</button> 
         
-        <div id="accordion">
+    <div id="accordion">
           <h3 style ="text-align:center">Bronze Tier Trophies</h3>
           <div class="flex-container">
               <div class ="flex-item"><button class = "trophy" id = "B6" onclick="ResetChar()">Chicken Slayer</button></div>
@@ -107,7 +107,13 @@
               <div class ="flex-item"><button class = "trophy" id = "B14" onclick="ResetChar()">Ether fire</button></div>
           </div>  
         </div>
-        <div id="TrophyText">
-        </div>
-    </body>
+    <div id="TrophyText"> </div>
+        <div id="Story">
+          <p id="dynamicText">You see a dragon, what do you do? You see a dragon, what do you do? You see a dragon, what do you do?You see a dragon, what do you do? You see a dragon, what do you do?p</p>
+          <button class ="StoryChoice" id="dynamicButton1">Attack the dragon </button>
+            <button class ="StoryChoice" id="dynamicButton2">Kill yourself  </button>
+            <button class ="StoryChoice" id="dynamicButton3">Run away! </button>
+            <button class ="StoryChoice" id="dynamicButton4">Cry </button>
+		</div>
+</body>
 </html>

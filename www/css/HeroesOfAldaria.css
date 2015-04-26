@@ -189,7 +189,21 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 #B5
 {
-	 background-color: red; 
+	background: #d93434;
+ 	background-image: -webkit-linear-gradient(top, #d93434, #ff0000);
+  	background-image: -moz-linear-gradient(top, #d93434, #ff0000);
+  	background-image: -ms-linear-gradient(top, #d93434, #ff0000);
+  	background-image: -o-linear-gradient(top, #d93434, #ff0000);
+  	background-image: linear-gradient(to bottom, #d93434, #ff0000);
+  	-webkit-border-radius: 22;
+  	-moz-border-radius: 22;
+  	border-radius: 22px;
+  	text-shadow: 1px 1px 3px #666666;
+  	font-family: Georgia;
+  	color: #ffffff;
+  	font-size: 20px;
+  	padding: 10px 20px 10px 20px;
+  	text-decoration: none;
 	 border-color: transparent; 
 	 outline: 0;	 
      position: absolute; 
@@ -198,4 +212,15 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 	 width : 90%; 
 	 height :17%;	
 	 font-size: 8vw;
+	 user-select:none;
+}
+
+#B5:active {
+  background: #3cfc43;
+  background-image: -webkit-linear-gradient(top, #3cfc43, #0b993d);
+  background-image: -moz-linear-gradient(top, #3cfc43, #0b993d);
+  background-image: -ms-linear-gradient(top, #3cfc43, #0b993d);
+  background-image: -o-linear-gradient(top, #3cfc43, #0b993d);
+  background-image: linear-gradient(to bottom, #3cfc43, #0b993d);
+  text-decoration: none;
 }

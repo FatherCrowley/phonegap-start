@@ -8,8 +8,10 @@ var Mundane = 10;
 var Fame    = 10;
 var Infamy  = 10;
 var CurScene = 0;
-var SceneList; 
-
+var SceneList = [4]; 
+var LocationCode = 0;
+document.addEventListener("deviceready", ReadStory, false);
+//document.addEventListener('DOMContentLoaded', ReadStory, false);
 
 function SetEventsLocation(location)
 {
@@ -54,10 +56,13 @@ function TextScene(StringArray)
 	this.option3  = new TextOption(StringArray[12],StringArray[13],StringArray[14],StringArray[15],StringArray[16])
 	this.option4  = new TextOption(StringArray[17],StringArray[18],StringArray[19],StringArray[20],StringArray[21])	
 }
-
 TextScene.prototype.Display = function()
 {
 	document.getElementById("dynamicText").innerHTML = this.choiceText;
+	option1.Display("dynamicButton1");
+	option2.Display("dynamicButton2");
+	option3.Display("dynamicButton3");
+	option4.Display("dynamicButton4");
 }
 
 
@@ -73,8 +78,7 @@ TextOption.prototype.Display = function(HTMLID)
 {
 	document.getElementById(HTMLID).innerHTML = this.Text;
 }
-
-TextOption.prototype.DoTest()
+TextOption.prototype.DoTest = function()
 {
 	if(this.TestStat>0)
 	{
@@ -134,38 +138,81 @@ TextOption.prototype.DoTest()
 				break;
 			case -2:
 				CurScene = this.WinLink;
-				Attack += this.TestValue;
+				Defence += this.TestValue;
 				break;
 			case -3:
 				CurScene = this.WinLink;
-				Attack += this.TestValue;
+				Tact += this.TestValue;
 				break;
 			case -4:
 				CurScene = this.WinLink;
-				Attack += this.TestValue;
+				Rage += this.TestValue;
 				break;
 			case -5:
 				CurScene = this.WinLink;
-				Attack += this.TestValue;
+				Magic += this.TestValue;
 				break;
 			case -6:
 				CurScene = this.WinLink;
-				Attack += this.TestValue;
+				Mundane += this.TestValue;
 				break;
 			case -7:
 				CurScene = this.WinLink;
-				Attack += this.TestValue;
+				Fame += this.TestValue;
 				break;
 			case -8:
 				CurScene = this.WinLink;
-				Attack += this.TestValue;
+				Infamy += this.TestValue;
 				break;
 			default:
-				CurScene = LoseLink;
+				CurScene = this.WinLink;
 		} 
 	}
 		
 }
+
+function ReadStory()
+{
+	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersvile.txt", GenerateScenes, fail);
+	LocationCode = 1;
+	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Golzbergium.txt", GenerateScenes, fail);
+	LocationCode = 2;
+	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Priceton.txt", GenerateScenes, fail);
+	LocationCode = 3;
+	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/TheFieldsOfDevilly.txt", GenerateScenes, fail);
+	LocationCode = 0;
+	SceneList[0][0].Display();
+} 
+
+function fail(e) {
+	console.log("FileSystem Error");
+	console.dir(e);
+}
+
+function GenerateScenes(fileEntry)
+{
+	fileEntry.file
+	(
+		function(file) 
+		{
+			var reader = new FileReader();
+			reader.onloadend = function(e) 
+			{
+				var scenes  = this.result.split("¬");
+				for (i = 0; i< scenes.length; i++)
+				{
+					var infoArray = scenes[i].split("|");
+					SceneList[LocationCode].push(new TextScene(infoArray));				
+				}
+				console.log("Text is: "+this.result);
+				document.querySelector("#textArea").innerHTML = this.result;
+			}
+
+			reader.readAsText(file);
+		}
+	);
+}
+
 function ResetChar()
 {
 	console.log("You reset Everything! you bastard");

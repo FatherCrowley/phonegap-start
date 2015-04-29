@@ -199,13 +199,14 @@ function GenerateScenes(fileEntry)
 			reader.onloadend = function(e) 
 			{
 				var scenes  = this.result.split("¬");
+				var a = [];
 				for (i = 0; i< scenes.length; i++)
 				{
-					var infoArray = scenes[i].split("|");
-					SceneList[LocationCode].push(new TextScene(infoArray));				
+					var infoArray = scenes[i].split("|");					
+					a.push(new TextScene(infoArray));				
 				}
-				console.log("Text is: "+this.result);
-				document.querySelector("#textArea").innerHTML = this.result;
+				SceneList[LocationCode].push(a);
+				
 			}
 
 			reader.readAsText(file);

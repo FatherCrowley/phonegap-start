@@ -182,7 +182,7 @@ function ReadStory()
 	//LocationCode = 3;
 	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/TheFieldsOfDevilly.txt", GenerateScenes, fail);
 	//LocationCode = 0;
-	document.getElementById("dynamicText").innerHTML = SceneList[0][0].choiceText;//.Display();
+	SceneList[0][0].Display();
 } 
 
 function gotFS(fileSystem) {
@@ -209,6 +209,7 @@ function GenerateScenes(fileEntry)
 			var reader = new FileReader();
 			reader.onloadend = function(e) 
 			{
+				document.getElementById("dynamicText").innerHTML = this.result;
 				var scenes  = this.result.split("¬");
 				var a = [];
 				for (i = 0; i< scenes.length; i++)

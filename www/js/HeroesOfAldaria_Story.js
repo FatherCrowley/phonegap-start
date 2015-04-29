@@ -173,8 +173,8 @@ TextOption.prototype.DoTest = function()
 
 function ReadStory()
 {
-	 window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
-	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersvile.txt", GenerateScenes, fail);
+	// window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersville.txt", GenerateScenes, fail1);
 	//LocationCode = 1;
 	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Golzbergium.txt", GenerateScenes, fail);
 	//LocationCode = 2;

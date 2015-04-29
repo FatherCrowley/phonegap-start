@@ -190,7 +190,7 @@ function gotFS(fileSystem) {
     }
 
 function fail(e) {
-	document.getElementById("dynamicText").innerHTML = "FileSystem Error";
+	document.getElementById("dynamicText").innerHTML = e;
 	console.log("FileSystem Error");
 	console.dir(e);
 }

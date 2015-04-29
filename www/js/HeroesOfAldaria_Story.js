@@ -174,13 +174,13 @@ TextOption.prototype.DoTest = function()
 function ReadStory()
 {
 	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersvile.txt", GenerateScenes, fail);
-	LocationCode = 1;
-	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Golzbergium.txt", GenerateScenes, fail);
-	LocationCode = 2;
-	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Priceton.txt", GenerateScenes, fail);
-	LocationCode = 3;
-	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/TheFieldsOfDevilly.txt", GenerateScenes, fail);
-	LocationCode = 0;
+	//LocationCode = 1;
+	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Golzbergium.txt", GenerateScenes, fail);
+	//LocationCode = 2;
+	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Priceton.txt", GenerateScenes, fail);
+	//LocationCode = 3;
+	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/TheFieldsOfDevilly.txt", GenerateScenes, fail);
+	//LocationCode = 0;
 	SceneList[0][0].Display();
 } 
 

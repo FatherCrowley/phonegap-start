@@ -1,4 +1,15 @@
 var charLocation; 
+var Attack  = 10;
+var Defence = 10;
+var Tact    = 10;
+var Rage    = 10;
+var Magic   = 10;
+var Mundane = 10;
+var Fame    = 10;
+var Infamy  = 10;
+var CurScene = 0;
+var SceneList; 
+
 
 function SetEventsLocation(location)
 {
@@ -43,23 +54,117 @@ function TextScene(StringArray)
 	this.option3  = new TextOption(StringArray[12],StringArray[13],StringArray[14],StringArray[15],StringArray[16])
 	this.option4  = new TextOption(StringArray[17],StringArray[18],StringArray[19],StringArray[20],StringArray[21])	
 }
+
 TextScene.prototype.Display = function()
 {
-	document.getElementById(HTMLID).innerHTML = this.Text;
+	document.getElementById("dynamicText").innerHTML = this.choiceText;
 }
 
 
 function TextOption(Text, WinLink, LoseLink, TestStat, TestValue)
 {
 	this.Text = Text;
-	this.WinLink= WinLink;
-	this.LoseLink= LoseLink;
-	this.TestStat= TestStat;
-	this.TestValue= TestValue;
+	this.WinLink  = parseInt(WinLink,10);
+	this.LoseLink = parseInt(LoseLink,10);
+	this.TestStat = parseInt(TestStat,10);
+	this.TestValue= parseInt(TestValue,10);
 }
 TextOption.prototype.Display = function(HTMLID)
 {
 	document.getElementById(HTMLID).innerHTML = this.Text;
+}
+
+TextOption.prototype.DoTest()
+{
+	if(this.TestStat>0)
+	{
+		switch(this.TestStat) 
+		{
+			case 1:
+				if(Attack>=this.TestValue)
+					CurScene = this.WinLink;
+				else CurScene = this.LoseLink;
+				break;
+			case 2:
+				if(Defence>=this.TestValue)
+					CurScene = this.WinLink;
+				else CurScene = this.LoseLink;
+				break;
+			case 3:
+				if(Tact>=this.TestValue)
+					CurScene = this.WinLink;
+				else CurScene = this.LoseLink;
+				break;
+			case 4:
+				if(Rage>=this.TestValue)
+					CurScene = this.WinLink;
+				else CurScene = this.LoseLink;
+				break;
+			case 5:
+				if(Magic>=this.TestValue)
+					CurScene = this.WinLink;
+				else CurScene = this.LoseLink;
+				break;
+			case 6:
+				if(Mundane>=this.TestValue)
+					CurScene = this.WinLink;
+				else CurScene = this.LoseLink;
+				break;
+			case 7:
+				if(Fame>=this.TestValue)
+					CurScene = this.WinLink;
+				else CurScene = this.LoseLink;
+				break;
+			case 8:
+				if(Infinity>=this.TestValue)
+					CurScene = this.WinLink;
+				else CurScene = this.LoseLink;
+				break;
+			default:
+				CurScene = this.LoseLink;
+		} 
+	}
+	else 
+	{
+		switch(this.TestStat) 
+		{
+			case -1:				
+				CurScene = this.WinLink;
+				Attack += this.TestValue;
+				break;
+			case -2:
+				CurScene = this.WinLink;
+				Attack += this.TestValue;
+				break;
+			case -3:
+				CurScene = this.WinLink;
+				Attack += this.TestValue;
+				break;
+			case -4:
+				CurScene = this.WinLink;
+				Attack += this.TestValue;
+				break;
+			case -5:
+				CurScene = this.WinLink;
+				Attack += this.TestValue;
+				break;
+			case -6:
+				CurScene = this.WinLink;
+				Attack += this.TestValue;
+				break;
+			case -7:
+				CurScene = this.WinLink;
+				Attack += this.TestValue;
+				break;
+			case -8:
+				CurScene = this.WinLink;
+				Attack += this.TestValue;
+				break;
+			default:
+				CurScene = LoseLink;
+		} 
+	}
+		
 }
 function ResetChar()
 {

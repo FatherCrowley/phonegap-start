@@ -173,8 +173,8 @@ TextOption.prototype.DoTest = function()
 
 function ReadStory()
 {
-	
-	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersvile.txt", GenerateScenes, fail);
+	 window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersvile.txt", GenerateScenes, fail);
 	//LocationCode = 1;
 	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Golzbergium.txt", GenerateScenes, fail);
 	//LocationCode = 2;
@@ -184,6 +184,10 @@ function ReadStory()
 	//LocationCode = 0;
 	SceneList[0][0].Display();
 } 
+
+function gotFS(fileSystem) {
+        fileSystem.root.getFile("www/story/Bowersvile.txt", {create: true, exclusive: false}, GenerateScenes, fail);
+    }
 
 function fail(e) {
 	console.log("FileSystem Error");

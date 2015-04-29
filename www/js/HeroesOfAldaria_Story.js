@@ -173,6 +173,7 @@ TextOption.prototype.DoTest = function()
 
 function ReadStory()
 {
+	
 	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersvile.txt", GenerateScenes, fail);
 	//LocationCode = 1;
 	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Golzbergium.txt", GenerateScenes, fail);

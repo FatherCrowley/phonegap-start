@@ -186,11 +186,16 @@ function ReadStory()
 } 
 
 function gotFS(fileSystem) {
-        fileSystem.root.getFile("www/story/Bowersvile.txt", {create: false, exclusive: false}, GenerateScenes, fail);
+        fileSystem.root.getFile("www/story/Bowersvile.txt", {create: false, exclusive: false}, GenerateScenes, fail1);
     }
 
 function fail(e) {
 	document.getElementById("dynamicText").innerHTML = e;
+	console.log("FileSystem Error");
+	console.dir(e);
+}
+function fail1(e) {
+	document.getElementById("dynamicText").innerHTML = "file fail";
 	console.log("FileSystem Error");
 	console.dir(e);
 }

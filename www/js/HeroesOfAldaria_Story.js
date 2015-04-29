@@ -186,7 +186,7 @@ function ReadStory()
 } 
 
 function gotFS(fileSystem) {
-        fileSystem.root.getFile("www/story/Bowersvile.txt", {create: false, exclusive: false}, GenerateScenes, fail1);
+        fileSystem.root.getFile("www/story/Bowersville.txt", {create: false, exclusive: false}, GenerateScenes, fail1);
     }
 
 function fail(e) {

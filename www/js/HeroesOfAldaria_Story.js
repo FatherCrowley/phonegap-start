@@ -207,9 +207,10 @@ TextOption.prototype.DoTest = function()
 
 function ReadStory()
 {
-	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersville.txt", GenerateScenes, fail);	
 	alert ("Getting FS");
-	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersville.txt", GenerateScenes, fail);	
+	
+	//window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 }
 
 function gotFS(fileSystem) 

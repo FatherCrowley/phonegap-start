@@ -208,16 +208,37 @@ TextOption.prototype.DoTest = function()
 function ReadStory()
 {
 	alert ("Getting FS");
-	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersville.txt", GenerateScenes, fail);	
+	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersville.txt", GenerateScenes, fail);	
 	
-	//window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 }
 
 function gotFS(fileSystem) 
 {
 		alert ("Getting FileEntry");
-        fileSystem.root.getFile("Bowersville.txt", {'create':false}, GenerateScenes, fail);
+        fileSystem.root.getFile("Bowersville.txt", null, gotFileEntry, fail);
 }
+ function gotFileEntry(fileEntry) 
+{
+	 alert ("Getting File");
+    fileEntry.file(gotFile, fail);
+}
+function gotFile(file)
+{
+    //readDataUrl(file);
+    readAsText(file);
+}
+
+ function readAsText(file) 
+ {
+        var file_reader = new FileReader();
+        file_reader.onloadend = function (evt) {
+             alert("Read as text");
+             alert(evt.target.result);
+        };
+		 alert("BEFORE READING")
+        file_reader.readAsText(file);
+    }
 function fail(e) 
 {
 	alert ("Error: " + e.code) ;

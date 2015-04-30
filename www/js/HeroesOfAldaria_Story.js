@@ -208,11 +208,13 @@ TextOption.prototype.DoTest = function()
 function ReadStory()
 {
 	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersville.txt", GenerateScenes, fail);	
+	alert ("Getting FS");
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 }
 
 function gotFS(fileSystem) 
 {
+		alert ("Getting FileEntry");
         fileSystem.root.getFile(cordova.file.applicationDirectory + "www/story/Bowersville.txt", null, GenerateScenes, fail);
 }
 function fail(e) 

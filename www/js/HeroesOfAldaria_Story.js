@@ -238,12 +238,15 @@ function GenerateScenes(fileEntry)
 	(
 		function(e) 
 		{
+			alert(e.type);
+			alert(e.size);
+			alert(e.fullPath);
 			var reader = new FileReader();
 			reader.onloadend = function(end) 
 			{
-				alert(end.target.result)
+				alert(end.target.result);
 				document.getElementById("dynamicText").innerHTML = end.target.result;
-				var scenes  = reader.result.split("¬");
+				var scenes  = reader.result.split("@");
 				var a = [];
 				for (i = 0; i< scenes.length; i++)
 				{

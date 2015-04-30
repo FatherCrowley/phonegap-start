@@ -239,7 +239,7 @@ function GenerateScenes(fileEntry)
 		function(e) 
 		{
 			var reader = new FileReader();
-			reader.onloadend = function(end) 
+			reader.onload = function(end) 
 			{
 				alert(end.target.result)
 				document.getElementById("dynamicText").innerHTML = end.target.result;

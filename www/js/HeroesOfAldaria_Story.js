@@ -205,6 +205,46 @@ TextOption.prototype.DoTest = function()
 
 function ReadStory()
 {
+	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/test.txt", GenerateScenes, fail);
+}
+
+function fail(e) 
+{
+	alert ("Error: " + e.code) ;
+}
+
+function GenerateScenes(fileEntry)
+{
+
+	fileEntry.file
+	(
+		function(file) 
+		{
+			var reader = new FileReader();
+			reader.onloadend = function(e) 
+			{
+
+				alert(this.result);
+				document.getElementById("dynamicText").innerHTML = this.result;
+				var scenes  = this.result.split("¬");
+				var a = [];
+				for (i = 0; i< scenes.length; i++)
+				{
+					var infoArray = scenes[i].split("|");
+					a.push(new TextScene(infoArray));
+				}
+				SceneList[LocationCode].push(a);
+			}
+
+			reader.readAsText(file);
+		}
+	);
+}
+
+
+/*
+function ReadStory()
+{
 	// window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersville.txt", GenerateScenes, fail1);
 	//LocationCode = 1;
@@ -231,6 +271,8 @@ function fail1(e) {
 	console.log("FileSystem Error");
 	console.dir(e);
 }
+
+
 
 function GenerateScenes(fileEntry)
 {
@@ -261,7 +303,7 @@ function GenerateScenes(fileEntry)
 		}
 	);
 }
-
+*/
 function ResetChar()
 {
 	console.log("You reset Everything! you bastard");

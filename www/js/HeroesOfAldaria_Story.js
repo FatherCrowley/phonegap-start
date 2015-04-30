@@ -12,7 +12,7 @@ var SceneList = [4];
 var LocationCode = 0;
 
 //document.addEventListener("deviceready", ReadStory, false);
-document.addEventListener('DOMContentLoaded', ReadStory, false);
+//document.addEventListener('DOMContentLoaded', ReadStory, false);
 
 /*<!DOCTYPE html>
 <html>

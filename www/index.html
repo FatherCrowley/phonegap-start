@@ -48,6 +48,24 @@
   		});
  		</script>
 		
+		<script>
+		$.ajax
+		(
+			{
+				url: 'story/Bowersville.html',
+				success: function(data) 
+				{
+					alert(data);
+				},
+				error: function() 
+				{	       
+					alert("somenthing went wrong");
+				},
+				dataType: "text"
+			}
+		);
+		</script>
+		
     </head>
     <body>
 		<img src="img/background.jpg" width = "300%" height =  "300%"  z-index = "1"></img>

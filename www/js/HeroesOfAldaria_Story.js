@@ -240,7 +240,7 @@ function GenerateScenes(fileEntry)
 			var reader = new FileReader();
 			reader.onloadend = function(e) 
 			{
-				alert(e)
+				//alert(e.target)
 				document.getElementById("dynamicText").innerHTML = e.target.result;
 				var scenes  = e.target.result.split("¬");
 				var a = [];
@@ -253,7 +253,7 @@ function GenerateScenes(fileEntry)
 				
 			}
 
-			reader.readAsText(file);
+			alert(reader.readAsText(file));
 		}
 	);
 }

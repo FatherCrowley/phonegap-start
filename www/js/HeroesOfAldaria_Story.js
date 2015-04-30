@@ -11,8 +11,8 @@ var CurScene = 0;
 var SceneList = [4]; 
 var LocationCode = 0;
 
-document.addEventListener("deviceready", ReadStory, false);
-//document.addEventListener('DOMContentLoaded', ReadStory, false);
+//document.addEventListener("deviceready", ReadStory, false);
+document.addEventListener('DOMContentLoaded', ReadStory, false);
 
 /*<!DOCTYPE html>
 <html>
@@ -210,7 +210,35 @@ function ReadStory()
 	alert ("Getting FS");
 	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersville.txt", GenerateScenes, fail);	
 	
-	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+	//window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+	loadHTML("story/Bowersville.html");
+}
+
+function loadHTML(url)
+{
+	var xhr = createXHR();
+	xhr.onreadystatechange=function()
+	{ 
+		if(xhr.readyState == 4)
+		{
+			if(xhr.status == 200)
+			{
+				var story = getBody(xhr.responseText);
+				document.getElementById("dynamicText").innerHTML = story;
+				var scenes  = story.split("¬");
+				var a = [];
+				for (i = 0; i< scenes.length; i++)
+				{
+					var infoArray = scenes[i].split("|");
+					a.push(new TextScene(infoArray));
+				}
+				SceneList[LocationCode].push(a);
+			}
+		} 
+	}; 
+
+	xhr.open("GET", url , true);
+	xhr.send(null); 
 }
 
 function gotFS(fileSystem) 

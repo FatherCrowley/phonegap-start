@@ -254,7 +254,7 @@ function GenerateScenes(fileEntry)
 				
 			}
 
-			reader.readAsDataURL(e);
+			reader.readAsText(e);
 		}
 	);
 }

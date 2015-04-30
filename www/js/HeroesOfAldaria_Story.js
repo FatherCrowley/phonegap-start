@@ -217,7 +217,7 @@ function ReadStory()
 function loadHTML(url)
 {
 	alert ("Loading stuff stuff");
-	var xhr = createXHR();
+	var xhr = new XMLHttpRequest();//createXHR();
 	xhr.onreadystatechange=function()
 	{ 
 		alert ("Reading stuff");
@@ -225,7 +225,7 @@ function loadHTML(url)
 		{
 			if(xhr.status == 200)
 			{
-				var story = getBody(xhr.responseText);
+				var story = xhr.responseText;
 				document.getElementById("dynamicText").innerHTML = story;
 				var scenes  = story.split("¬");
 				var a = [];

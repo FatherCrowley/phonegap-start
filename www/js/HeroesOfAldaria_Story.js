@@ -246,7 +246,7 @@ function GenerateScenes(fileEntry)
 			{
 				alert(end.target.result);
 				document.getElementById("dynamicText").innerHTML = end.target.result;
-				var scenes  = reader.result.split("@");
+				var scenes  = end.target.result.split("@");
 				var a = [];
 				for (i = 0; i< scenes.length; i++)
 				{

@@ -240,6 +240,7 @@ function GenerateScenes(fileEntry)
 			var reader = new FileReader();
 			reader.onloadend = function(e) 
 			{
+				alert(e)
 				document.getElementById("dynamicText").innerHTML = e.target.result;
 				var scenes  = e.target.result.split("¬");
 				var a = [];

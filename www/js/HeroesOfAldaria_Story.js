@@ -216,9 +216,11 @@ function ReadStory()
 
 function loadHTML(url)
 {
+	alert ("Loading stuff stuff");
 	var xhr = createXHR();
 	xhr.onreadystatechange=function()
 	{ 
+		alert ("Reading stuff");
 		if(xhr.readyState == 4)
 		{
 			if(xhr.status == 200)

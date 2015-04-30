@@ -10,7 +10,7 @@ var Infamy  = 10;
 var CurScene = 0;
 var SceneList = [4]; 
 var LocationCode = 0;
-var reader = new FileReader();
+
 document.addEventListener("deviceready", ReadStory, false);
 //document.addEventListener('DOMContentLoaded', ReadStory, false);
 
@@ -238,7 +238,7 @@ function GenerateScenes(fileEntry)
 	(
 		function(e) 
 		{
-			
+			var reader = new FileReader();
 			reader.onloadend = function(end) 
 			{
 				alert(end.target.result)

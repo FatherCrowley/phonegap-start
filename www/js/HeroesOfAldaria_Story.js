@@ -215,7 +215,7 @@ function ReadStory()
 function gotFS(fileSystem) 
 {
 		alert ("Getting FileEntry");
-        fileSystem.root.getFile(cordova.file.applicationDirectory + "www/story/Bowersville.txt", null, GenerateScenes, fail);
+        fileSystem.root.getFile("Bowersville.txt", {'create':false}, GenerateScenes, fail);
 }
 function fail(e) 
 {

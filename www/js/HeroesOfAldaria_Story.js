@@ -236,13 +236,13 @@ function GenerateScenes(fileEntry)
 {
 	fileEntry.file
 	(
-		function(file) 
+		function(e) 
 		{
 			
-			reader.onloadend = function() 
+			reader.onloadend = function(end) 
 			{
-				alert(reader.result)
-				document.getElementById("dynamicText").innerHTML = reader.result;
+				alert(end.target.result)
+				document.getElementById("dynamicText").innerHTML = end.target.result;
 				var scenes  = reader.result.split("¬");
 				var a = [];
 				for (i = 0; i< scenes.length; i++)
@@ -254,7 +254,7 @@ function GenerateScenes(fileEntry)
 				
 			}
 
-			reader.readAsText(file);
+			reader.readAsText(e);
 		}
 	);
 }

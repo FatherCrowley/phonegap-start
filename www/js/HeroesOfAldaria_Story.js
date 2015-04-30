@@ -10,6 +10,7 @@ var Infamy  = 10;
 var CurScene = 0;
 var SceneList = [4]; 
 var LocationCode = 0;
+var reader = new FileReader();
 document.addEventListener("deviceready", ReadStory, false);
 //document.addEventListener('DOMContentLoaded', ReadStory, false);
 
@@ -237,12 +238,12 @@ function GenerateScenes(fileEntry)
 	(
 		function(file) 
 		{
-			var reader = new FileReader();
-			reader.onloadend = function(e) 
+			
+			reader.onloadend = function() 
 			{
-				//alert(e.target)
-				document.getElementById("dynamicText").innerHTML = e.target.result;
-				var scenes  = e.target.result.split("¬");
+				alert(reader.result)
+				document.getElementById("dynamicText").innerHTML = reader.result;
+				var scenes  = reader.result.split("¬");
 				var a = [];
 				for (i = 0; i< scenes.length; i++)
 				{
@@ -253,7 +254,7 @@ function GenerateScenes(fileEntry)
 				
 			}
 
-			alert(reader.readAsText(file));
+			reader.readAsText(file);
 		}
 	);
 }

@@ -205,7 +205,7 @@ TextOption.prototype.DoTest = function()
 
 function ReadStory()
 {
-	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/test.txt", GenerateScenes, fail);
+	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersville.txt", GenerateScenes, fail);
 }
 
 function fail(e) 

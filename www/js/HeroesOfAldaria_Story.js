@@ -216,7 +216,7 @@ function ReadStory()
 function gotFS(fileSystem) 
 {
 		alert ("Getting FileEntry");
-        fileSystem.root.getFile("story/Bowersville.txt", null, gotFileEntry, fail);
+        fileSystem.root.getFile("www/story/Bowersville.txt", null, gotFileEntry, fail);
 }
  function gotFileEntry(fileEntry) 
 {

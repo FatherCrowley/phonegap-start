@@ -203,11 +203,18 @@ TextOption.prototype.DoTest = function()
 		
 }
 
+
+
 function ReadStory()
 {
-	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersville.txt", GenerateScenes, fail);
+	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersville.txt", GenerateScenes, fail);	
+	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 }
 
+function gotFS(fileSystem) 
+{
+        fileSystem.root.getFile(cordova.file.applicationDirectory + "www/story/Bowersville.txt", null, GenerateScenes, fail);
+}
 function fail(e) 
 {
 	alert ("Error: " + e.code) ;

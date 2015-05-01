@@ -185,7 +185,7 @@ function ReadStory()
 		SceneList[i] = [];
 	}
 	SetEventsLocation("Bowersvile");
-	loadStory("story/Bowersville.html",locationID);		
+	loadStory("story/Bowersville.txt",locationID);		
 }
 
 function loadStory(source,locationID)
@@ -254,21 +254,16 @@ function MakeChoice(choiceID)
 }
 function UpdateStats()
 {
-	CalculateSlider("S1",Attack,Defence);
-	CalculateSlider("S2",Tact,Rage);
-	CalculateSlider("S3",Magic,Mundane);
-	CalculateSlider("S4",Fame,Infamy);
+	CalculateSlider("SR1",Attack,Defence);
+	CalculateSlider("SR2",Tact,Rage);
+	CalculateSlider("SR3",Magic,Mundane);
+	CalculateSlider("SR4",Fame,Infamy);
 }
 
 function CalculateSlider(ID,Stat1,Stat2)
-{
-	var elements = document.getElementById(ID).getElementsByTagName("input");
-	for (var i = 0; i < elements.length; i++)
-	{
-		alert(elements.max);
-		elements[i].max = ""+Stat1+Stat2;
-		elements[i].value = ""+Stat1;
-	}
+{	
+	//alert(ID);
+	document.getElementById(ID).value = ""+((100*Stat1)/(Stat1+Stat2));	
 }
 
 function ResetChar()

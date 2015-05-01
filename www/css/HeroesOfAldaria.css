@@ -201,7 +201,7 @@ html, body
 }
 
 
-
+/*)
 input[type=range]{
     -webkit-appearance: none;
 	width: 100%;
@@ -233,7 +233,7 @@ input[type=range]:focus {
 input[type=range]:focus::-webkit-slider-runnable-track {
     background: #ccc;
 }
-
+*/
 #B5
 {
 	background: #d93434;

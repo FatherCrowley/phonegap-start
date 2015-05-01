@@ -18,7 +18,8 @@ document.addEventListener("deviceready",  WriteTest, false);
 
 function onInitFs(fs) {
 
-  fs.root.getFile('log.txt', {create: true}, function(fileEntry) {
+  fs.getFile('log.txt', {create: true}, function(fileEntry) {
+	alert(fileEntry.fullPath);
     // Create a FileWriter object for our FileEntry (log.txt).
     fileEntry.createWriter(function(fileWriter) {
 
@@ -43,7 +44,7 @@ function onInitFs(fs) {
 
 function WriteTest()
 {	
-	window.requestFileSystem(window.TEMPORARY, 1024*1024, onInitFs, errorHandler);
+	window.resolveLocalFileSystemURL(cordova.file.dataDirectory, onInitFs);
 }
 
 function SetEventsLocation(location)

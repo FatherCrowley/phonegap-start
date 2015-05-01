@@ -10,9 +10,10 @@ var Fame    = 10;
 var Infamy  = 10;
 var CurScene = 0;
 var SceneList =  [[]]; 
-
+var TrophyList = [];
 //document.addEventListener("deviceready", ReadStory, false);
 document.addEventListener('DOMContentLoaded', ReadStory, false);
+document.addEventListener('DOMContentLoaded', ReadTrophys, false);
 
 function SetEventsLocation(location)
 {
@@ -176,7 +177,65 @@ TextOption.prototype.DoTest = function()
 		
 }
 
-
+function Trophy(Name,TriggerScene,Description,Stat,Boost,HTMLID)
+{
+	this.name  = Name;
+	this.triggerScene = parseInt(TriggerScene,10);
+	this.description = Description;
+	this.stat = parseInt(Stat,10);
+	this.boost = parseInt(Boost,10);
+	this.htmlID = HTMLID;
+	this.hasTriggered = false;
+}
+Trophy.prototype.Test = function(Scene)
+{
+	if(Scene==this.triggerScene)
+	{
+		this.Enable();
+		this.hasTriggered = true;
+	}	
+}
+Trophy.prototype.Enable = function()
+{
+	document.getElementById(this.htmlID).disabled = false;
+	document.getElementById(this.htmlID).innerHTML= this.name;
+	switch(this.stat) 
+		{
+			case 1:					
+				Attack += this.boost;
+				break;
+			case 2:				
+				Defence += this.boost;
+				break;
+			case 3:				
+				Tact += this.boost;
+				break;
+			case 4:				
+				Rage += this.boost;
+				break;
+			case 5:				
+				Magic += this.boost;
+				break;
+			case 6:				
+				Mundane += this.boost;
+				break;
+			case 7:				
+				Fame += this.boost;
+				break;
+			case 8:				
+				Infamy += this.boost;
+				break;			
+		} 
+}
+Trophy.prototype.Disable = function()
+{	
+	document.getElementById(this.htmlID).disabled = true;
+	document.getElementById(this.htmlID).innerHTML= this.name;
+}
+Trophy.prototype.OnCLick = function()
+{
+	document.getElementById("TrophyText").innerHTML = this.description;
+}
 
 function ReadStory()
 {	
@@ -187,9 +246,16 @@ function ReadStory()
 	SetEventsLocation("Bowersvile");
 	loadStory("story/Bowersville.txt",locationID);		
 }
+function ReadTrophys()
+{
+	var a = ["B6","B7","B8","B9","B10","B11","B12","B13","B14"];
+	loadTrophys("Trophy/TrophyList.txt",a);
+}
+
 
 function loadStory(source,locationID)
 {
+	
 	$.ajax
 		(
 			{
@@ -211,6 +277,26 @@ function loadStory(source,locationID)
 		);
 }
 
+function loadTrophys(source,HTMLIDList)
+{	
+	$.ajax
+		(
+			{
+				url: source,
+				success: function(data) 
+				{
+					GenerateTrophys(data,HTMLIDList);					
+				},
+				error: function() 
+				{	       
+					alert("somenthing went wrong");
+				},
+				
+				dataType: "text"
+			}
+		);
+}
+
 function GenerateScenes(text,locationID)
 {
 	var scenes  = text.split("¬");
@@ -222,10 +308,25 @@ function GenerateScenes(text,locationID)
 	}	
 }
 
+function GenerateTrophys(text,HTMLIDList)
+{
+	var trophys  = text.split("¬");	
+	var tmp;	
+	for (i = 0; i< trophys.length; i++)
+	{
+		var infoArray = trophys[i].split("|");
+		tmp = new Trophy(infoArray[0],infoArray[1],infoArray[2],infoArray[3],infoArray[4],HTMLIDList[i]);
+		TrophyList.push(tmp);
+		tmp.Disable();
+	}		
+	
+}
+
 function ContinueStory()
 {
 	SceneList[0][0].Display();
 	UpdateStats();
+	
 }
 
 function MakeChoice(choiceID)
@@ -251,6 +352,16 @@ function MakeChoice(choiceID)
 		
 	}
 	UpdateStats();
+	for (i = 0; i<TrophyList.length; i++)
+	{
+		if(TrophyList[i].hasTriggered == false)
+			TrophyList[i].Test(CurScene);
+	}
+}
+
+function DisplayTropy(ID)
+{
+	TrophyList[ID].OnCLick();
 }
 function UpdateStats()
 {

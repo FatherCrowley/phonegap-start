@@ -14,6 +14,38 @@ var TrophyList = [];
 //document.addEventListener("deviceready", ReadStory, false);
 document.addEventListener('DOMContentLoaded', ReadStory, false);
 document.addEventListener('DOMContentLoaded', ReadTrophys, false);
+document.addEventListener("deviceready",  WriteTest, false);
+
+function onInitFs(fs) {
+
+  fs.root.getFile('log.txt', {create: true}, function(fileEntry) {
+
+    // Create a FileWriter object for our FileEntry (log.txt).
+    fileEntry.createWriter(function(fileWriter) {
+
+      fileWriter.onwriteend = function(e) {
+        console.log('Write completed.');
+      };
+
+      fileWriter.onerror = function(e) {
+        console.log('Write failed: ' + e.toString());
+      };
+
+      // Create a new Blob and write it to log.txt.
+      var blob = new Blob(['Lorem Ipsum'], {type: 'text/plain'});
+
+      fileWriter.write(blob);
+
+    }, errorHandler);
+
+  }, errorHandler);
+
+}
+
+function WriteTest()
+{	
+	window.requestFileSystem(window.TEMPORARY, 1024*1024, onInitFs, errorHandler);
+}
 
 function SetEventsLocation(location)
 {

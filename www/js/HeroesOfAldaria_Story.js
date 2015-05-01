@@ -262,11 +262,12 @@ function UpdateStats()
 
 function CalculateSlider(ID,Stat1,Stat2)
 {
-	var elements = document.getElementById(ID).children;
+	var elements = document.getElementById(ID).getElementsByTagName("input");
 	for (var i = 0; i < elements.length; i++)
 	{
-		elements[i].max = Stat1+Stat2;
-		elements[i].value = Stat1;
+		alert(elements.max);
+		elements[i].max = ""+Stat1+Stat2;
+		elements[i].value = ""+Stat1;
 	}
 }
 

@@ -225,7 +225,7 @@ function GenerateScenes(text,locationID)
 function ContinueStory()
 {
 	SceneList[0][0].Display();
-	
+	UpdateStats();
 }
 
 function MakeChoice(choiceID)
@@ -254,8 +254,22 @@ function MakeChoice(choiceID)
 }
 function UpdateStats()
 {
-	
+	CalculateSlider("S1",Attack,Defence);
+	CalculateSlider("S2",Tact,Rage);
+	CalculateSlider("S3",Magic,Mundane);
+	CalculateSlider("S4",Fame,Infamy);
 }
+
+function CalculateSlider(ID,Stat1,Stat2)
+{
+	var elements = document.getElementById(ID).children;
+	for (var i = 0; i < elements.length; i++)
+	{
+		elements[i].max = Stat1+Stat2;
+		elements[i].value = Stat1;
+	}
+}
+
 function ResetChar()
 {
 	console.log("You reset Everything! you bastard");

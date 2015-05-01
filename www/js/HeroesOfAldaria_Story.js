@@ -19,7 +19,6 @@ document.addEventListener("deviceready",  WriteTest, false);
 function onInitFs(fs) {
 
   fs.root.getFile('log.txt', {create: true}, function(fileEntry) {
-
     // Create a FileWriter object for our FileEntry (log.txt).
     fileEntry.createWriter(function(fileWriter) {
 

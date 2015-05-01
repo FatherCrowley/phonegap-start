@@ -49,21 +49,7 @@
  		</script>
 		
 		<script>
-		$.ajax
-		(
-			{
-				url: 'story/Bowersville.html',
-				success: function(data) 
-				{
-					alert(data);
-				},
-				error: function() 
-				{	       
-					alert("somenthing went wrong");
-				},
-				dataType: "text"
-			}
-		);
+		
 		</script>
 		
     </head>
@@ -129,10 +115,10 @@
     <div id="TrophyText"> </div>
         <div id="Story">
           <p id="dynamicText">You see a dragon, what do you do? You see a dragon, what do you do? You see a dragon, what do you do?You see a dragon, what do you do? You see a dragon, what do you do?p</p>
-          <button class ="StoryChoice" id="dynamicButton1">Attack the dragon </button>
-            <button class ="StoryChoice" id="dynamicButton2">Kill yourself  </button>
-            <button class ="StoryChoice" id="dynamicButton3">Run away! </button>
-            <button class ="StoryChoice" id="dynamicButton4">Cry </button>
+            <button class ="StoryChoice" id="dynamicButton1" onclick ="MakeChoice(1)" >Attack the dragon </button>
+            <button class ="StoryChoice" id="dynamicButton2" onclick ="MakeChoice(2)">Kill yourself  </button>
+            <button class ="StoryChoice" id="dynamicButton3" onclick ="MakeChoice(3)">Run away! </button>
+            <button class ="StoryChoice" id="dynamicButton4" onclick ="MakeChoice(4)">Cry </button>
 		</div>
         
         

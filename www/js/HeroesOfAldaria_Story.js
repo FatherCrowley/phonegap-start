@@ -1,4 +1,5 @@
 var charLocation; 
+var locationID = 0;
 var Attack  = 10;
 var Defence = 10;
 var Tact    = 10;
@@ -8,48 +9,17 @@ var Mundane = 10;
 var Fame    = 10;
 var Infamy  = 10;
 var CurScene = 0;
-var SceneList = [4]; 
-var LocationCode = 0;
+var SceneList =  [[]]; 
 
 //document.addEventListener("deviceready", ReadStory, false);
-//document.addEventListener('DOMContentLoaded', ReadStory, false);
+document.addEventListener('DOMContentLoaded', ReadStory, false);
 
-/*<!DOCTYPE html>
-<html>
-  <head>
-    <title>reading file</title>
-    <script type="text/javascript">
-
-		var reader = new FileReader();
-
-		function readText(that){
-
-			if(that.files && that.files[0]){
-				var reader = new FileReader();
-				reader.onload = function (e) {  
-					var output=e.target.result;
-				
-					//process text to show only lines with "@":				
-					output=output.split("\n").filter(/./.test, /\@/).join("\n");
-
-					document.getElementById('main').innerHTML= output;
-				};//end onload()
-				reader.readAsText(that.files[0]);
-			}//end if html5 filelist support
-		} 
-</script>
-</head>
-<body>
-	<input type="file" onchange='readText(this)' />
-	<div id="main"></div>
-  </body>
-</html>
-*/
 function SetEventsLocation(location)
 {
 	charLocation = location;
 	if(location == "Priceton")
 	{
+		locationID = 2;
 		document.getElementById("Priceton").src              = "img/Loc5.png";
 		document.getElementById("Golzbergium").src           = "img/Loc2.png";
 		document.getElementById("Bowersvile").src           = "img/Loc4.png";
@@ -57,6 +27,7 @@ function SetEventsLocation(location)
 	}	
 	if(location == "Golzbergium")
 	{
+		locationID = 3;
 		document.getElementById("Priceton").src              = "img/Loc3.png";
 		document.getElementById("Golzbergium").src           = "img/Loc5.png";
 		document.getElementById("Bowersvile").src           = "img/Loc4.png";
@@ -64,6 +35,7 @@ function SetEventsLocation(location)
 	}
 	if(location == "Bowersvile")
 	{
+		locationID = 0;
 		document.getElementById("Priceton").src              = "img/Loc3.png";
 		document.getElementById("Golzbergium").src           = "img/Loc2.png";
 		document.getElementById("Bowersvile").src           = "img/Loc5.png";
@@ -71,6 +43,7 @@ function SetEventsLocation(location)
 	}
 	if(location == "The Fields Of Devilly")
 	{
+		locationID = 1;
 		document.getElementById("Priceton").src              = "img/Loc3.png";
 		document.getElementById("Golzbergium").src           = "img/Loc2.png";
 		document.getElementById("Bowersvile").src           = "img/Loc4.png";
@@ -91,10 +64,10 @@ function TextScene(StringArray)
 TextScene.prototype.Display = function()
 {
 	document.getElementById("dynamicText").innerHTML = this.choiceText;
-	option1.Display("dynamicButton1");
-	option2.Display("dynamicButton2");
-	option3.Display("dynamicButton3");
-	option4.Display("dynamicButton4");
+	this.option1.Display("dynamicButton1");
+	this.option2.Display("dynamicButton2");
+	this.option3.Display("dynamicButton3");
+	this.option4.Display("dynamicButton4");
 }
 
 
@@ -206,165 +179,83 @@ TextOption.prototype.DoTest = function()
 
 
 function ReadStory()
+{	
+	for(var i =0; i<4;i++)
+	{
+		SceneList[i] = [];
+	}
+	SetEventsLocation("Bowersvile");
+	loadStory("story/Bowersville.html",locationID);		
+}
+
+function loadStory(source,locationID)
 {
-	alert ("Getting FS");
-	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersville.txt", GenerateScenes, fail);	
+	$.ajax
+		(
+			{
+				url: source,
+				success: function(data) 
+				{
+					GenerateScenes(data,locationID);					
+				},
+				error: function() 
+				{	       
+					alert("somenthing went wrong");
+				},
+				complete: function()
+				{
+					ContinueStory();
+				},
+				dataType: "text"
+			}
+		);
+}
+
+function GenerateScenes(text,locationID)
+{
+	var scenes  = text.split("¬");
+	SceneList[locationID] = [];
+	for (i = 0; i< scenes.length; i++)
+	{
+		var infoArray = scenes[i].split("|");		
+		SceneList[locationID].push(new TextScene(infoArray));
+	}	
+}
+
+function ContinueStory()
+{
+	SceneList[0][0].Display();
 	
-	//window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
-	loadHTML("story/Bowersville.html");
 }
 
-function loadHTML(url)
+function MakeChoice(choiceID)
+{	
+	switch(choiceID)
+	{
+		case 1:
+			SceneList[locationID][CurScene].option1.DoTest();
+			SceneList[locationID][CurScene].Display();			
+		break;
+		case 2:
+			SceneList[locationID][CurScene].option2.DoTest();
+			SceneList[locationID][CurScene].Display();
+		break;
+		case 3:
+			SceneList[locationID][CurScene].option3.DoTest();
+			SceneList[locationID][CurScene].Display();
+		break;
+		case 4:
+			SceneList[locationID][CurScene].option4.DoTest();
+			SceneList[locationID][CurScene].Display();
+		break;		
+		
+	}
+	UpdateStats();
+}
+function UpdateStats()
 {
-	alert ("Loading stuff stuff");
-	var xhr = new XMLHttpRequest();//createXHR();
-	xhr.onreadystatechange=function()
-	{ 
-		alert ("Reading stuff");
-		if(xhr.readyState == 4)
-		{
-			if(xhr.status == 200)
-			{
-				var story = xhr.responseText;
-				document.getElementById("dynamicText").innerHTML = story;
-				var scenes  = story.split("¬");
-				var a = [];
-				for (i = 0; i< scenes.length; i++)
-				{
-					var infoArray = scenes[i].split("|");
-					a.push(new TextScene(infoArray));
-				}
-				SceneList[LocationCode].push(a);
-			}
-		} 
-	}; 
-
-	xhr.open("GET", url , true);
-	xhr.send(null); 
+	
 }
-
-function gotFS(fileSystem) 
-{
-		alert ("Getting FileEntry");
-        fileSystem.root.getFile("www/story/Bowersville.txt", null, gotFileEntry, fail);
-}
- function gotFileEntry(fileEntry) 
-{
-	 alert ("Getting File");
-    fileEntry.file(gotFile, fail);
-}
-function gotFile(file)
-{
-    //readDataUrl(file);
-    readAsText(file);
-}
-
- function readAsText(file) 
- {
-        var file_reader = new FileReader();
-        file_reader.onloadend = function (evt) {
-             alert("Read as text");
-             alert(evt.target.result);
-        };
-		 alert("BEFORE READING")
-        file_reader.readAsText(file);
-    }
-function fail(e) 
-{
-	alert ("Error: " + e.code) ;
-}
-
-function GenerateScenes(fileEntry)
-{
-
-	fileEntry.file
-	(
-		function(file) 
-		{
-			var reader = new FileReader();
-			reader.onloadend = function(e) 
-			{
-
-				alert(this.result);
-				document.getElementById("dynamicText").innerHTML = this.result;
-				var scenes  = this.result.split("¬");
-				var a = [];
-				for (i = 0; i< scenes.length; i++)
-				{
-					var infoArray = scenes[i].split("|");
-					a.push(new TextScene(infoArray));
-				}
-				SceneList[LocationCode].push(a);
-			}
-
-			reader.readAsText(file);
-		}
-	);
-}
-
-
-/*
-function ReadStory()
-{
-	// window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
-	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Bowersville.txt", GenerateScenes, fail1);
-	//LocationCode = 1;
-	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Golzbergium.txt", GenerateScenes, fail);
-	//LocationCode = 2;
-	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/Priceton.txt", GenerateScenes, fail);
-	//LocationCode = 3;
-	//window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/story/TheFieldsOfDevilly.txt", GenerateScenes, fail);
-	//LocationCode = 0;
-	//SceneList[0][0].Display();
-} 
-
-function gotFS(fileSystem) {
-        fileSystem.root.getFile("www/story/Bowersville.txt", {create: false, exclusive: false}, GenerateScenes, fail1);
-    }
-
-function fail(e) {
-	document.getElementById("dynamicText").innerHTML = "WOPS";
-	console.log("FileSystem Error");
-	console.dir(e);
-}
-function fail1(e) {
-	document.getElementById("dynamicText").innerHTML = "file fail";
-	console.log("FileSystem Error");
-	console.dir(e);
-}
-
-
-
-function GenerateScenes(fileEntry)
-{
-	fileEntry.file
-	(
-		function(e) 
-		{
-			alert(e.type);
-			alert(e.size);
-			alert(e.fullPath);
-			var reader = new FileReader();
-			reader.onloadend = function(end) 
-			{
-				alert(end.target.result);
-				document.getElementById("dynamicText").innerHTML = end.target.result;
-				var scenes  = end.target.result.split("@");
-				var a = [];
-				for (i = 0; i< scenes.length; i++)
-				{
-					var infoArray = scenes[i].split("|");					
-					a.push(new TextScene(infoArray));				
-				}
-				SceneList[LocationCode].push(a);
-				
-			}
-
-			reader.readAsText(e);
-		}
-	);
-}
-*/
 function ResetChar()
 {
 	console.log("You reset Everything! you bastard");

@@ -44,7 +44,7 @@ function onInitFs(fs) {
 
 function WriteTest()
 {	
-	alert("foing the test");
+	alert(cordova.file.dataDirectory);
 	window.resolveLocalFileSystemURL(cordova.file.dataDirectory, onInitFs);
 }
 

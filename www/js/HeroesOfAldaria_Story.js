@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', ReadTrophys, false);
 document.addEventListener("deviceready",  WriteTest, false);
 
 function onInitFs(fs) {
-
+	alert("got the url");
   fs.getFile('log.txt', {create: true}, function(fileEntry) {
 	alert(fileEntry.fullPath);
     // Create a FileWriter object for our FileEntry (log.txt).
@@ -36,14 +36,15 @@ function onInitFs(fs) {
 
       fileWriter.write(blob);
 
-    }, errorHandler);
+    });
 
-  }, errorHandler);
+  });
 
 }
 
 function WriteTest()
 {	
+	alert("foing the test");
 	window.resolveLocalFileSystemURL(cordova.file.dataDirectory, onInitFs);
 }
 

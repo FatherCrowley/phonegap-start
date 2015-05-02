@@ -1,0 +1,1 @@
+function si_download_tracker(productid,userid,producttype){jQuery.ajax({type:'POST',url:si_download_tracking_ajax_script.ajaxurl,data:{action:'si_download_tracker_hook',userid:userid,productid:productid,producttype:producttype},async:false}).done(function(si_download_tracker_response){});}

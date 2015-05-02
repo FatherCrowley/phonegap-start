@@ -1,0 +1,10 @@
+/**
+ * This file contains all the CSS for the front/public side of this plugin
+ */
+
+/**
+ * Feedback GIF when the AJAX is doing some work
+ */
+.ajax-loading {
+	display:none;
+}

@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', ReadStory, false);
 document.addEventListener('DOMContentLoaded', ReadTrophys, false);
-document.addEventListener("deviceready",  WriteTest, false);
+document.addEventListener("deviceready",  WriteSave, false);
 
 //////////////File API Writing
-function WriteTest()
+function WriteSave()
 {	
 	alert(cordova.file.dataDirectory);
 	window.resolveLocalFileSystemURL(cordova.file.dataDirectory, onInitFs);
@@ -11,7 +11,7 @@ function WriteTest()
 
 function onInitFs(fs) {
 	alert("got the url");
-	fs.getFile('www/story/log.txt', {create: true}, function(fileEntry) {
+	fs.getFile('www/story/save.txt', {create: true}, function(fileEntry) {
 	alert(fileEntry.fullPath);
     // Create a FileWriter object for our FileEntry (log.txt).
     fileEntry.createWriter(function(fileWriter) {
@@ -24,7 +24,37 @@ function onInitFs(fs) {
         console.log('Write failed: ' + e.toString());
       };
 
-      // Create a new Blob and write it to log.txt.
+      // Create a new Blob and write it to save.txt.
+	  var saveText = '';
+	  saveText += CurScene;
+	  saveText += '¬';
+	  saveText += locationID;
+	  saveText += '¬';
+	  saveText += Attack ;
+	  saveText += '|';
+	  saveText += Defence ;
+	  saveText += '|';
+	  saveText += Tact;
+	  saveText += '|';
+	  saveText += Rage;
+	  saveText += '|';
+      saveText += Magic;
+	  saveText += '|';
+	  saveText += Mundane;
+	  saveText += '|';
+	  saveText += Fame;
+	  saveText += '|';
+	  saveText += Infamy;
+	  saveText += '¬';
+	  for (i = 0; i< TrophyList.length; i++)
+	  {
+		  if(TrophyList[i].hasTriggered == true)
+		  {
+			 saveText += i;
+			 saveText += '|';
+		  }
+	  }
+		  
       var blob = new Blob(['Lorem Ipsum'], {type: 'text/plain'});
 
       fileWriter.write(blob);
@@ -38,8 +68,8 @@ function onInitFs(fs) {
 //File API Reading 
 function ReadSave()
 {
-	alert (cordova.file.dataDirectory + "log.txt");
-	window.resolveLocalFileSystemURL(cordova.file.dataDirectory + "log.txt", LoadSave, fail);
+	alert (cordova.file.dataDirectory + "save.txt");
+	window.resolveLocalFileSystemURL(cordova.file.dataDirectory + "save.txt", LoadSave, fail);
 }
 
 function fail(e) 
@@ -56,7 +86,31 @@ function LoadSave(fileEntry)
 		var reader = new FileReader();
 		reader.onloadend = function(e) 
 			{
-				alert(this.result);	
+				var aspects  = this.result.split("¬");
+				
+				if(aspects.length>1)
+				{								
+					CurScene     = parseInt(aspects[0],10);				
+					locationID   = parseInt(aspects[1],10);
+					
+					
+					var data     = aspects[2].split("|");
+					Attack  = parseInt(data[0],10);
+					Defence = parseInt(data[1],10);
+					Tact    = parseInt(data[2],10);
+					Rage    = parseInt(data[3],10);
+					Magic   = parseInt(data[4],10);
+					Mundane = parseInt(data[5],10);
+					Fame    = parseInt(data[6],10);
+					Infamy  = parseInt(data[7],10);			
+
+					var data     = aspects[3].split("|");				
+					for (i = 0; i< data.length; i++)
+					{
+						TrophyList[parseInt(data[i],10)].Enable();
+					}
+				}
+				
 			}
 		reader.readAsText(file);
 		}

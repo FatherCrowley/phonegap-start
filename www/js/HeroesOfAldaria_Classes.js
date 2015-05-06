@@ -171,7 +171,8 @@ Trophy.prototype.Enable = function()
 			case 8:				
 				Infamy += this.boost;
 				break;			
-		} 
+		}
+	this.hasTriggered = true;
 }
 Trophy.prototype.Disable = function()
 {	

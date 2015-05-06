@@ -72,9 +72,10 @@ function LoadSave(fileEntry)
 			{
 				alert(this.result);	
 			}
+		reader.readAsText(file);
 		}
 	);
-	reader.readAsText(file);
+	
 }
 
 function SetEventsLocation(location)

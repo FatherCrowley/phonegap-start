@@ -10,9 +10,9 @@ function WriteSave()
 }
 
 function onInitFs(fs) {
-	alert("got the url");
+	
 	fs.getFile('save.txt', {create: true}, function(fileEntry) {
-	alert(fileEntry.fullPath);
+	
     // Create a FileWriter object for our FileEntry (log.txt).
     fileEntry.createWriter(function(fileWriter) {
 
@@ -86,6 +86,7 @@ function LoadSave(fileEntry)
 		var reader = new FileReader();
 		reader.onloadend = function(e) 
 			{
+				alert(this.result);
 				var aspects  = this.result.split("¬");
 				
 				if(aspects.length>1)

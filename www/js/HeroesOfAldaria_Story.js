@@ -74,6 +74,7 @@ function LoadSave(fileEntry)
 			}
 		}
 	);
+	reader.readAsText(file);
 }
 
 function SetEventsLocation(location)

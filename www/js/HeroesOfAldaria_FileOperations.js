@@ -11,7 +11,7 @@ function WriteSave()
 
 function onInitFs(fs) {
 	alert("got the url");
-	fs.getFile('www/story/save.txt', {create: true}, function(fileEntry) {
+	fs.getFile('save.txt', {create: true}, function(fileEntry) {
 	alert(fileEntry.fullPath);
     // Create a FileWriter object for our FileEntry (log.txt).
     fileEntry.createWriter(function(fileWriter) {

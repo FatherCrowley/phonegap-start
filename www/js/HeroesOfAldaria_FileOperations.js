@@ -192,7 +192,7 @@ function loadEquipment(source)
 				url: source,
 				success: function(data) 
 				{
-					GenerateEquipment(data,HTMLIDList);					
+					GenerateEquipment(data);					
 				},
 				error: function() 
 				{	       

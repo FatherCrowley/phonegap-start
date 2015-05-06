@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', ReadStory, false);
-document.addEventListener('DOMContentLoaded', ReadTrophys, false);
-document.addEventListener("deviceready",  WriteSave, false);
+document.addEventListener('deviceready', ReadStory, false);
+document.addEventListener('deviceready', ReadTrophys, false);
+document.addEventListener("pause",  WriteSave, false);
 
 //////////////File API Writing
 function WriteSave()

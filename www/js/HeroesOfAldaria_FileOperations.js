@@ -4,8 +4,7 @@ document.addEventListener("pause",  WriteSave, false);
 
 //////////////File API Writing
 function WriteSave()
-{	
-	alert(cordova.file.dataDirectory);
+{		
 	window.resolveLocalFileSystemURL(cordova.file.dataDirectory, onInitFs);
 }
 

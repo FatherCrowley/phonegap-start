@@ -183,3 +183,121 @@ Trophy.prototype.OnCLick = function()
 {
 	document.getElementById("TrophyText").innerHTML = this.description;
 }
+
+function Equipment(Name, Description, Type, URL, Stat, Boost , TriggerScene)
+{
+	this.name  = Name;
+	this.type  = Type;
+	this.url   = URL; 
+	this.stat  = parseInt(Stat,10);
+	this.boost = parseInt(Boost,10);
+	this.description = Description;
+	this.triggerScene = parseInt(TriggerScene,10);
+	this.hasTriggered = false;
+}
+
+Equipment.prototype.Equip = function()
+{	
+	this.hasTriggered = true
+	switch(this.type)
+	{
+		case "Armor": 
+		document.getElementById("Armor").innerHTML = "<img src=\"" + this.url+ "\">";
+		CurEquipment[0] = this;
+		var index = PossibleEquipemnt.indexOf(this);
+		PossibleEquipemnt.splice(index, 1);
+		break;
+		
+		case "Helmet": 
+		document.getElementById("Helmet").innerHTML = "<img src=\"" + this.url+ "\">";
+		CurEquipment[1] = this;
+		var index = PossibleEquipemnt.indexOf(this);
+		PossibleEquipemnt.splice(index, 1);
+		break;
+		
+		case "RightWeapon": 
+		document.getElementById("RightWeapon").innerHTML = "<img src=\"" + this.url+ "\">";
+		CurEquipment[2] = this;
+		var index = PossibleEquipemnt.indexOf(this);
+		PossibleEquipemnt.splice(index, 1);
+		break;
+		
+		case "LeftWeapon": 
+		document.getElementById("LeftWeapon").innerHTML = "<img src=\"" + this.url+ "\">";
+		CurEquipment[3] = this;
+		var index = PossibleEquipemnt.indexOf(this);
+		PossibleEquipemnt.splice(index, 1);
+		break;
+		
+		case "RightRing": 
+		document.getElementById("RightRing").innerHTML = "<img src=\"" + this.url+ "\">";
+		CurEquipment[4] = this;
+		var index = PossibleEquipemnt.indexOf(this);
+		PossibleEquipemnt.splice(index, 1);
+		break;
+		
+		case "LeftRing": 
+		document.getElementById("LeftRing").innerHTML = "<img src=\"" + this.url+ "\">";
+		CurEquipment[5] = this;
+		var index = PossibleEquipemnt.indexOf(this);
+		PossibleEquipemnt.splice(index, 1);
+		break;
+		
+		case "Boots": 
+		document.getElementById("Boots").innerHTML = "<img src=\"" + this.url+ "\">";
+		CurEquipment[6] = this;
+		var index = PossibleEquipemnt.indexOf(this);
+		PossibleEquipemnt.splice(index, 1);
+		break;
+		
+		case "Amulet": 
+		document.getElementById("Amulet").innerHTML = "<img src=\"" + this.url+ "\">";
+		CurEquipment[7] = this;
+		var index = PossibleEquipemnt.indexOf(this);
+		PossibleEquipemnt.splice(index, 1);
+		break;
+	}
+	
+	switch(this.stat) 
+		{
+			case 1:					
+				Attack += this.boost;
+				break;
+			case 2:				
+				Defence += this.boost;
+				break;
+			case 3:				
+				Tact += this.boost;
+				break;
+			case 4:				
+				Rage += this.boost;
+				break;
+			case 5:				
+				Magic += this.boost;
+				break;
+			case 6:				
+				Mundane += this.boost;
+				break;
+			case 7:				
+				Fame += this.boost;
+				break;
+			case 8:				
+				Infamy += this.boost;
+				break;			
+		}
+	
+}
+
+Equipment.prototype.Inspect = function()
+{
+	document.getElementById("Description").innerHTML = this.description;
+}
+
+Equipment.prototype.Test = function(Scene)
+{
+	if(Scene==this.triggerScene)
+	{
+		this.Equip();
+		this.hasTriggered = true;
+	}	
+}

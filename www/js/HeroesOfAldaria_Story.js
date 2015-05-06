@@ -11,6 +11,8 @@ var Infamy  = 10;
 var CurScene = 0;
 var SceneList =  [[]]; 
 var TrophyList = [];
+var CurEquipment = Array(8);
+var PossibleEquipemnt = [];
 
 function SetEventsLocation(location)
 {
@@ -79,18 +81,31 @@ function MakeChoice(choiceID)
 		break;		
 		
 	}
-	UpdateStats();
+	
+	for (i = 0; i<PossibleEquipemnt.length; i++)
+	{
+		if(PossibleEquipemnt[i].hasTriggered == false)
+			PossibleEquipemnt[i].Test(CurScene);
+	}
+	
 	for (i = 0; i<TrophyList.length; i++)
 	{
 		if(TrophyList[i].hasTriggered == false)
 			TrophyList[i].Test(CurScene);
 	}
+	UpdateStats();
 }
 
 function DisplayTropy(ID)
 {
 	TrophyList[ID].OnCLick();
 }
+
+function DisplayEquipment(ID)
+{
+	CurEquipment[ID].Inspect();
+}
+
 function UpdateStats()
 {
 	CalculateSlider("SR1",Attack,Defence);
@@ -101,7 +116,6 @@ function UpdateStats()
 
 function CalculateSlider(ID,Stat1,Stat2)
 {	
-	//alert(ID);
 	document.getElementById(ID).value = ""+((100*Stat1)/(Stat1+Stat2));	
 }
 

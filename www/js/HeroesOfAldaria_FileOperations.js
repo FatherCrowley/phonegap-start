@@ -1,5 +1,6 @@
 document.addEventListener('deviceready', ReadStory, false);
 document.addEventListener('deviceready', ReadTrophys, false);
+document.addEventListener('deviceready', ReadEquipment, false);
 document.addEventListener("pause",  WriteSave, false);
 
 //////////////File API Writing
@@ -53,7 +54,7 @@ function onInitFs(fs) {
 			 saveText += '|';
 		  }
 	  }
-		  
+	  saveText = saveText.substr(0,saveText.length-1);  
       var blob = new Blob([ saveText], {type: 'text/plain'});
 
       fileWriter.write(blob);
@@ -134,7 +135,10 @@ function ReadTrophys()
 	var a = ["B6","B7","B8","B9","B10","B11","B12","B13","B14"];
 	loadTrophys("Trophy/TrophyList.txt",a);
 }
-
+function ReadEquipment()
+{	
+	loadEquipment("Equipment/EquipmentList.txt");
+}
 
 function loadStory(source,locationID)
 {
@@ -180,6 +184,26 @@ function loadTrophys(source,HTMLIDList)
 		);
 }
 
+function loadEquipment(source)
+{	
+	$.ajax
+		(
+			{
+				url: source,
+				success: function(data) 
+				{
+					GenerateEquipment(data,HTMLIDList);					
+				},
+				error: function() 
+				{	       
+					alert("somenthing went wrong");
+				},
+				
+				dataType: "text"
+			}
+		);
+}
+
 function GenerateScenes(text,locationID)
 {
 	var scenes  = text.split("¬");
@@ -203,4 +227,16 @@ function GenerateTrophys(text,HTMLIDList)
 		tmp.Disable();
 	}		
 	
+}
+
+function GenerateEquipment(text)
+{
+	var items  = text.split("¬");	
+	var tmp;	
+	for (i = 0; i< items.length; i++)
+	{
+		var infoArray = items[i].split("|");
+		tmp = new Equipment(infoArray[0],infoArray[1],infoArray[2],infoArray[3],infoArray[4],infoArray[5],infoArray[6]);
+		PossibleEquipemnt.push(tmp);		
+	}
 }

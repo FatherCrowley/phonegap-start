@@ -52,8 +52,8 @@ function WriteTest()
 
 function ReadSave()
 {
-	alert (cordova.file.dataDirectory + "www/story/log.txt");
-	window.resolveLocalFileSystemURL(cordova.file.dataDirectory + "www/story/log.txt", LoadSave, fail);
+	alert (cordova.file.dataDirectory + "log.txt");
+	window.resolveLocalFileSystemURL(cordova.file.dataDirectory + "log.txt", LoadSave, fail);
 }
 
 function fail(e) 

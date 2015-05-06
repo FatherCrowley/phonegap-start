@@ -18,7 +18,7 @@ document.addEventListener("deviceready",  WriteTest, false);
 
 function onInitFs(fs) {
 	alert("got the url");
-  fs.getFile('www/story/log.txt', {create: true}, function(fileEntry) {
+	fs.getFile('www/story/log.txt', {create: true}, function(fileEntry) {
 	alert(fileEntry.fullPath);
     // Create a FileWriter object for our FileEntry (log.txt).
     fileEntry.createWriter(function(fileWriter) {
@@ -46,6 +46,31 @@ function WriteTest()
 {	
 	alert(cordova.file.dataDirectory);
 	window.resolveLocalFileSystemURL(cordova.file.dataDirectory, onInitFs);
+}
+
+
+
+function ReadSave()
+{
+window.resolveLocalFileSystemURL(cordova.file.dataDirectory + "www/story/log.txt", LoadSave, fail);
+}
+
+function fail(e) {
+alert ("Error: " + e.code) ;
+ }
+
+function LoadSave(fileEntry)
+{
+	fileEntry.file
+	(
+		function(file) 
+		{
+		var reader = new FileReader();
+		reader.onloadend = function(e) 
+		{
+			alert(this.result);	
+		}
+	);
 }
 
 function SetEventsLocation(location)

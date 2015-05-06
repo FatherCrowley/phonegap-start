@@ -55,7 +55,7 @@ function onInitFs(fs) {
 		  }
 	  }
 		  
-      var blob = new Blob(['Lorem Ipsum'], {type: 'text/plain'});
+      var blob = new Blob([ saveText], {type: 'text/plain'});
 
       fileWriter.write(blob);
 

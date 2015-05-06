@@ -153,7 +153,7 @@ function loadStory(source,locationID)
 				},
 				error: function() 
 				{	       
-					alert("somenthing went wrong");
+					alert("Story loading went wrong");
 				},
 				complete: function()
 				{
@@ -176,7 +176,7 @@ function loadTrophys(source,HTMLIDList)
 				},
 				error: function() 
 				{	       
-					alert("somenthing went wrong");
+					alert("Trophy Loading went wrong");
 				},
 				
 				dataType: "text"
@@ -196,7 +196,7 @@ function loadEquipment(source)
 				},
 				error: function() 
 				{	       
-					alert("somenthing went wrong");
+					alert("Equipment loading went wrong");
 				},
 				
 				dataType: "text"

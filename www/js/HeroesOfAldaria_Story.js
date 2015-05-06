@@ -52,12 +52,13 @@ function WriteTest()
 
 function ReadSave()
 {
-window.resolveLocalFileSystemURL(cordova.file.dataDirectory + "www/story/log.txt", LoadSave, fail);
+	window.resolveLocalFileSystemURL(cordova.file.dataDirectory + "www/story/log.txt", LoadSave, fail);
 }
 
-function fail(e) {
-alert ("Error: " + e.code) ;
- }
+function fail(e) 
+{
+	alert ("Error: " + e.code) ;
+}
 
 function LoadSave(fileEntry)
 {
@@ -67,8 +68,9 @@ function LoadSave(fileEntry)
 		{
 		var reader = new FileReader();
 		reader.onloadend = function(e) 
-		{
-			alert(this.result);	
+			{
+				alert(this.result);	
+			}
 		}
 	);
 }

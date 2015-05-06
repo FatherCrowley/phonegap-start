@@ -1,0 +1,152 @@
+document.addEventListener('DOMContentLoaded', ReadStory, false);
+document.addEventListener('DOMContentLoaded', ReadTrophys, false);
+document.addEventListener("deviceready",  WriteTest, false);
+
+//////////////File API Writing
+function WriteTest()
+{	
+	alert(cordova.file.dataDirectory);
+	window.resolveLocalFileSystemURL(cordova.file.dataDirectory, onInitFs);
+}
+
+function onInitFs(fs) {
+	alert("got the url");
+	fs.getFile('www/story/log.txt', {create: true}, function(fileEntry) {
+	alert(fileEntry.fullPath);
+    // Create a FileWriter object for our FileEntry (log.txt).
+    fileEntry.createWriter(function(fileWriter) {
+
+      fileWriter.onwriteend = function(e) {
+        console.log('Write completed.');
+      };
+
+      fileWriter.onerror = function(e) {
+        console.log('Write failed: ' + e.toString());
+      };
+
+      // Create a new Blob and write it to log.txt.
+      var blob = new Blob(['Lorem Ipsum'], {type: 'text/plain'});
+
+      fileWriter.write(blob);
+
+    });
+
+  });
+
+}
+
+//File API Reading 
+function ReadSave()
+{
+	alert (cordova.file.dataDirectory + "log.txt");
+	window.resolveLocalFileSystemURL(cordova.file.dataDirectory + "log.txt", LoadSave, fail);
+}
+
+function fail(e) 
+{
+	alert ("Error: " + e.code) ;
+}
+
+function LoadSave(fileEntry)
+{
+	fileEntry.file
+	(
+		function(file) 
+		{
+		var reader = new FileReader();
+		reader.onloadend = function(e) 
+			{
+				alert(this.result);	
+			}
+		reader.readAsText(file);
+		}
+	);
+	
+}
+
+////Ajax File Reader
+
+function ReadStory()
+{	
+	for(var i =0; i<4;i++)
+	{
+		SceneList[i] = [];
+	}
+	SetEventsLocation("Bowersvile");
+	loadStory("story/Bowersville.txt",locationID);		
+}
+function ReadTrophys()
+{
+	var a = ["B6","B7","B8","B9","B10","B11","B12","B13","B14"];
+	loadTrophys("Trophy/TrophyList.txt",a);
+}
+
+
+function loadStory(source,locationID)
+{
+	
+	$.ajax
+		(
+			{
+				url: source,
+				success: function(data) 
+				{
+					GenerateScenes(data,locationID);					
+				},
+				error: function() 
+				{	       
+					alert("somenthing went wrong");
+				},
+				complete: function()
+				{
+					ContinueStory();
+				},
+				dataType: "text"
+			}
+		);
+}
+
+function loadTrophys(source,HTMLIDList)
+{	
+	$.ajax
+		(
+			{
+				url: source,
+				success: function(data) 
+				{
+					GenerateTrophys(data,HTMLIDList);					
+				},
+				error: function() 
+				{	       
+					alert("somenthing went wrong");
+				},
+				
+				dataType: "text"
+			}
+		);
+}
+
+function GenerateScenes(text,locationID)
+{
+	var scenes  = text.split("¬");
+	SceneList[locationID] = [];
+	for (i = 0; i< scenes.length; i++)
+	{
+		var infoArray = scenes[i].split("|");		
+		SceneList[locationID].push(new TextScene(infoArray));
+	}	
+}
+
+function GenerateTrophys(text,HTMLIDList)
+{
+	var trophys  = text.split("¬");	
+	var tmp;	
+	for (i = 0; i< trophys.length; i++)
+	{
+		var infoArray = trophys[i].split("|");
+		tmp = new Trophy(infoArray[0],infoArray[1],infoArray[2],infoArray[3],infoArray[4],HTMLIDList[i]);
+		TrophyList.push(tmp);
+		tmp.Disable();
+	}		
+	
+}

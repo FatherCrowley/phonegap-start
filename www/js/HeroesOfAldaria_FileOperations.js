@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', ReadStory, false);
-document.addEventListener('DOMContentLoaded', ReadTrophys, false);
-document.addEventListener('DOMContentLoaded', ReadEquipment, false);
-document.addEventListener('DOMContentLoaded', ReadSave, false);
+document.addEventListener('deviceready', ReadStory, false);
+document.addEventListener('deviceready', ReadTrophys, false);
+document.addEventListener('deviceready', ReadEquipment, false);
+document.addEventListener('deviceready', ReadSave, false);
 document.addEventListener("pause",  WriteSave, false);
 var done = 0;
 

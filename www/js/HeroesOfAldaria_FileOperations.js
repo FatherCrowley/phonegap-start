@@ -146,7 +146,7 @@ function LoadSave(fileEntry)
 								PossibleEquipemnt[j].Equip();
 						}
 					}
-					
+					alert(SceneList[locationID][CurScene]);
 					SceneList[locationID][CurScene].Display();
 				}
 				

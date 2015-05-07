@@ -118,7 +118,11 @@ function MakeChoice(choiceID)
 		}
 		UpdateStats();
 	}
-	else ReadSave();
+	else 
+	{	
+	ReadSave();
+	hasLoadedSave = true;
+	}
 }
 
 function DisplayTropy(ID)

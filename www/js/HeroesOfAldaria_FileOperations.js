@@ -109,7 +109,7 @@ function LoadSave(fileEntry)
 		var reader = new FileReader();
 		reader.onloadend = function(e) 
 			{
-				alert(this.result);
+				alert(this.result);				
 				var aspects  = this.result.split("¬");
 				alert(aspects.length);
 				if(aspects.length>1)
@@ -134,20 +134,26 @@ function LoadSave(fileEntry)
 					Fame    = parseInt(data[6],10);
 					Infamy  = parseInt(data[7],10);			
 					alert("helo");
-					var data     = aspects[3].split("|");				
-					for (i = 0; i< data.length; i++)
+					var data     = aspects[3].split("|");
+					if(data.length>0)
 					{
-						TrophyList[parseInt(data[i],10)].Enable();
+						for (i = 0; i< data.length; i++)
+						{
+							TrophyList[parseInt(data[i],10)].Enable();
+						}
 					}
 					
-					alert("hola");
+					alert("hola");					
 					data    = aspects[4].split("|");
-					for (i = 0; i< data.length; i++)
+					if(data.length>0)
 					{
-						for (j = 0; j< PossibleEquipemnt.length; j++)
+						for (i = 0; i< data.length; i++)
 						{
-							if(PossibleEquipemnt[j].name == data[i])
-								PossibleEquipemnt[j].Equip();
+							for (j = 0; j< PossibleEquipemnt.length; j++)
+							{
+								if(PossibleEquipemnt[j].name == data[i])
+									PossibleEquipemnt[j].Equip();
+							}
 						}
 					}
 					alert(SceneList[locationID][CurScene]);

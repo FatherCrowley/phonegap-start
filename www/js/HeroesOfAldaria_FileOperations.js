@@ -1,7 +1,7 @@
 document.addEventListener('deviceready', ReadStory, false);
 document.addEventListener('deviceready', ReadTrophys, false);
 document.addEventListener('deviceready', ReadEquipment, false);
-document.addEventListener('deviceready', ReadSave, false);
+//document.addEventListener('deviceready', ReadSave, false);
 document.addEventListener("pause",  WriteSave, false);
 var done = 0;
 
@@ -209,7 +209,7 @@ function ReadStory()
 	   loadStory("story/TheFieldsOfDevilly.txt",locationID);	
 	}).then(function() 
 	{  		
-		//ReadSave();
+		ReadSave();
 	});
 	
 	

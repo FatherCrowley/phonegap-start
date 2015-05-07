@@ -52,7 +52,7 @@ function onInitFs(fs) {
 	  saveText += '|';
 	  saveText += Fame;
 	  saveText += '|';
-	  saveText += Infamy;
+	  saveText += Infamy; 
 	  saveText += '¬';
 	  
 	  for (i = 0; i< TrophyList.length; i++)

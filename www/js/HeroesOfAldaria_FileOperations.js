@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', ReadStory, false);
 document.addEventListener('DOMContentLoaded', ReadTrophys, false);
 document.addEventListener('DOMContentLoaded', ReadEquipment, false);
-//document.addEventListener("pause",  WriteSave, false);
+document.addEventListener('DOMContentLoaded', ReadSave, false);
+document.addEventListener("pause",  WriteSave, false);
 var done = 0;
 
 //////////////File API Writing
@@ -197,7 +198,7 @@ function ReadStory()
 	   loadStory("story/TheFieldsOfDevilly.txt",locationID);	
 	}).then(function() 
 	{  		
-		ReadSave();
+		//ReadSave();
 	});
 	
 	

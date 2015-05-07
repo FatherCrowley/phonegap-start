@@ -133,8 +133,11 @@ function LoadSave(fileEntry)
 					Mundane = parseInt(data[5],10);
 					Fame    = parseInt(data[6],10);
 					Infamy  = parseInt(data[7],10);			
-					alert("helo");
+					
+					
+					alert(aspects[3]);
 					var data     = aspects[3].split("|");
+					alert(data);
 					if(data.length>0)
 					{
 						for (i = 0; i< data.length; i++)

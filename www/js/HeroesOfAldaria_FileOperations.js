@@ -134,12 +134,10 @@ function LoadSave(fileEntry)
 					Fame    = parseInt(data[6],10);
 					Infamy  = parseInt(data[7],10);			
 					
-					
-					alert(aspects[3]);
-					var data     = aspects[3].split("|");
-					alert(data);
-					if(data.length>0)
+				
+					if(aspects[3]!= "")
 					{
+						data     = aspects[3].split("|");
 						for (i = 0; i< data.length; i++)
 						{
 							TrophyList[parseInt(data[i],10)].Enable();
@@ -147,9 +145,10 @@ function LoadSave(fileEntry)
 					}
 					
 					alert("hola");					
-					data    = aspects[4].split("|");
-					if(data.length>0)
+					
+					if(aspects[3]!= "")
 					{
+						data    = aspects[4].split("|");
 						for (i = 0; i< data.length; i++)
 						{
 							for (j = 0; j< PossibleEquipemnt.length; j++)

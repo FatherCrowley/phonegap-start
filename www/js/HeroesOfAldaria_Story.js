@@ -14,7 +14,7 @@ var SceneList =  [[]];
 var TrophyList = [];
 var CurEquipment = Array(8);
 var PossibleEquipemnt = [];
-
+var hasLoadedSave = false;
 function SetEventsLocation(location)
 {
 	CurSceneArray[locationID] = CurScene;
@@ -82,39 +82,43 @@ var tmp = new Equipment("Nothing", "Just your bear hairy chest", "Armor"      , 
 
 function MakeChoice(choiceID)
 {	
-	switch(choiceID)
+	if(hasLoadedSave)
 	{
-		case 1:
-			SceneList[locationID][CurScene].option1.DoTest();
-			SceneList[locationID][CurScene].Display();			
-		break;
-		case 2:
-			SceneList[locationID][CurScene].option2.DoTest();
-			SceneList[locationID][CurScene].Display();
-		break;
-		case 3:
-			SceneList[locationID][CurScene].option3.DoTest();
-			SceneList[locationID][CurScene].Display();
-		break;
-		case 4:
-			SceneList[locationID][CurScene].option4.DoTest();
-			SceneList[locationID][CurScene].Display();
-		break;		
+		switch(choiceID)
+		{
+			case 1:
+				SceneList[locationID][CurScene].option1.DoTest();
+				SceneList[locationID][CurScene].Display();			
+			break;
+			case 2:
+				SceneList[locationID][CurScene].option2.DoTest();
+				SceneList[locationID][CurScene].Display();
+			break;
+			case 3:
+				SceneList[locationID][CurScene].option3.DoTest();
+				SceneList[locationID][CurScene].Display();
+			break;
+			case 4:
+				SceneList[locationID][CurScene].option4.DoTest();
+				SceneList[locationID][CurScene].Display();
+			break;		
+			
+		}
 		
+		for (i = 0; i<PossibleEquipemnt.length; i++)
+		{
+			if(PossibleEquipemnt[i].hasTriggered == false)
+				PossibleEquipemnt[i].Test(CurScene);
+		}
+		
+		for (i = 0; i<TrophyList.length; i++)
+		{
+			if(TrophyList[i].hasTriggered == false)
+				TrophyList[i].Test(CurScene);
+		}
+		UpdateStats();
 	}
-	
-	for (i = 0; i<PossibleEquipemnt.length; i++)
-	{
-		if(PossibleEquipemnt[i].hasTriggered == false)
-			PossibleEquipemnt[i].Test(CurScene);
-	}
-	
-	for (i = 0; i<TrophyList.length; i++)
-	{
-		if(TrophyList[i].hasTriggered == false)
-			TrophyList[i].Test(CurScene);
-	}
-	UpdateStats();
+	else ReadSave();
 }
 
 function DisplayTropy(ID)

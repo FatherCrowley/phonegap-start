@@ -211,7 +211,7 @@ function ReadStory()
 	   loadStory("story/TheFieldsOfDevilly.txt",locationID);	
 	}).then(function() 
 	{  		
-		ReadSave();
+		//ReadSave();
 	});
 	
 	

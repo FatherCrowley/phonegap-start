@@ -109,7 +109,7 @@ function LoadSave(fileEntry)
 			{
 				alert(this.result);
 				var aspects  = this.result.split("¬");
-				
+				alert(aspects.length);
 				if(aspects.length>1)
 				{								
 					var data = aspects[0].split("|");

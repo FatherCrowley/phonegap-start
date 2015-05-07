@@ -102,6 +102,7 @@ function fail(e)
 
 function LoadSave(fileEntry)
 {
+	SceneList[0][0].Display();
 	fileEntry.file
 	(
 		function(file) 

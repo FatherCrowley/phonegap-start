@@ -9,6 +9,7 @@ var Mundane = 10;
 var Fame    = 10;
 var Infamy  = 10;
 var CurScene = 0;
+var CurSceneArray = [0,0,0,0];
 var SceneList =  [[]]; 
 var TrophyList = [];
 var CurEquipment = Array(8);
@@ -16,6 +17,7 @@ var PossibleEquipemnt = [];
 
 function SetEventsLocation(location)
 {
+	CurSceneArray[locationID] = CurScene;
 	charLocation = location;
 	if(location == "Priceton")
 	{
@@ -49,12 +51,31 @@ function SetEventsLocation(location)
 		document.getElementById("Bowersvile").src           = "img/Loc4.png";
 		document.getElementById("TheFieldsOfDevilly").src = "img/Loc5.png";
 	}
+	CurScene  = CurSceneArray[locationID];
+	if(SceneList[locationID][CurScene] != null)
+		SceneList[locationID][CurScene].Display();
 	console.log("You went to " + location);
 }
 
 function ContinueStory()
 {
-	SceneList[0][0].Display();
+	
+var tmp = new Equipment("Nothing", "Just your bear hairy chest", "Armor"      , "/Empty0.png", 1, 0 , CurScene);	
+	tmp.Equip();
+	tmp = new Equipment("Nothing", "Your hair counts as one with so much product in it", "Helmet"     , "/Empty1.png", 1, 0 , CurScene);
+	tmp.Equip();
+	tmp = new Equipment("Nothing", "Your right fist, you call him Righty", "RightWeapon", "/Empty2.png", 1, 0 , CurScene);
+	tmp.Equip();
+	tmp = new Equipment("Nothing", "Your left fist, you call him Lefty", "LeftWeapon" , "/Empty3.png", 1, 0 , CurScene);
+	tmp.Equip();
+	tmp = new Equipment("Nothing", "Your dont have money for rings", "RightRing"  , "/Empty4.png", 1, 0 , CurScene);
+	tmp.Equip();
+	tmp = new Equipment("Nothing", "Your dont have money for rings", "LeftRing"   , "/Empty5.png", 1, 0 , CurScene);
+	tmp.Equip();
+	tmp = new Equipment("Nothing", "Bare feet have their advantages right?", "Boots"      , "/Empty6.png", 1, 0 , CurScene);
+	tmp.Equip();
+	tmp = new Equipment("Nothing", "Nope, no amulets here", "Amulet"     , "/Empty7.png", 1, 0 , CurScene);
+	tmp.Equip();	
 	UpdateStats();
 	
 }
@@ -102,7 +123,7 @@ function DisplayTropy(ID)
 }
 
 function DisplayEquipment(ID)
-{
+{	
 	CurEquipment[ID].Inspect();
 }
 

@@ -1,0 +1,17 @@
+000|You wake up in your house|
+You get up from bed|002|002|-1|115|
+You get down from bed|002|002|-1|115|
+You get left from bed|002|002|-1|115|
+You get right from bed|002|002|-1|115|
+¬
+001|You are in your bed|
+You get up from bed|002|002|1|115|
+You get down from bed|002|002|1|115|
+You get left from bed|002|002|1|115|
+You get right from bed|002|002|1|115|
+¬
+002|You|
+You get up from bed|002|002|-1|115|
+You get down from bed|002|002|-1|115|
+You get left from bed|002|002|-1|115|
+You get right from bed|002|002|-1|115|

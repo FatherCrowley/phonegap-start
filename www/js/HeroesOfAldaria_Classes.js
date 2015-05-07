@@ -203,6 +203,37 @@ Equipment.prototype.Equip = function()
 	{
 		case "Armor": 
 		document.getElementById("Armor").innerHTML = "<img src=\"" + this.url+ "\">";
+		var tmp = CurEquipment[0];
+		if(tmp != null)
+		{
+			switch(tmp.stat) 
+			{
+			case 1:					
+				Attack -= tmp.boost;
+				break;
+			case 2:				
+				Defence -= tmp.boost;
+				break;
+			case 3:				
+				Tact -= tmp.boost;
+				break;
+			case 4:				
+				Rage -= tmp.boost;
+				break;
+			case 5:				
+				Magic -= tmp.boost;
+				break;
+			case 6:				
+				Mundane -= tmp.boost;
+				break;
+			case 7:				
+				Fame -= tmp.boost;
+				break;
+			case 8:				
+				Infamy -= tmp.boost;
+				break;			
+			}
+		}
 		CurEquipment[0] = this;
 		var index = PossibleEquipemnt.indexOf(this);
 		PossibleEquipemnt.splice(index, 1);
@@ -210,6 +241,37 @@ Equipment.prototype.Equip = function()
 		
 		case "Helmet": 
 		document.getElementById("Helmet").innerHTML = "<img src=\"" + this.url+ "\">";
+		var tmp = CurEquipment[1];
+		if(tmp != null)
+		{
+			switch(tmp.stat) 
+			{
+			case 1:					
+				Attack -= tmp.boost;
+				break;
+			case 2:				
+				Defence -= tmp.boost;
+				break;
+			case 3:				
+				Tact -= tmp.boost;
+				break;
+			case 4:				
+				Rage -= tmp.boost;
+				break;
+			case 5:				
+				Magic -= tmp.boost;
+				break;
+			case 6:				
+				Mundane -= tmp.boost;
+				break;
+			case 7:				
+				Fame -= tmp.boost;
+				break;
+			case 8:				
+				Infamy -= tmp.boost;
+				break;			
+			}
+		}
 		CurEquipment[1] = this;
 		var index = PossibleEquipemnt.indexOf(this);
 		PossibleEquipemnt.splice(index, 1);
@@ -217,6 +279,37 @@ Equipment.prototype.Equip = function()
 		
 		case "RightWeapon": 
 		document.getElementById("RightWeapon").innerHTML = "<img src=\"" + this.url+ "\">";
+		var tmp = CurEquipment[2];
+		if(tmp != null)
+		{
+			switch(tmp.stat) 
+			{
+			case 1:					
+				Attack -= tmp.boost;
+				break;
+			case 2:				
+				Defence -= tmp.boost;
+				break;
+			case 3:				
+				Tact -= tmp.boost;
+				break;
+			case 4:				
+				Rage -= tmp.boost;
+				break;
+			case 5:				
+				Magic -= tmp.boost;
+				break;
+			case 6:				
+				Mundane -= tmp.boost;
+				break;
+			case 7:				
+				Fame -= tmp.boost;
+				break;
+			case 8:				
+				Infamy -= tmp.boost;
+				break;			
+			}
+		}
 		CurEquipment[2] = this;
 		var index = PossibleEquipemnt.indexOf(this);
 		PossibleEquipemnt.splice(index, 1);
@@ -224,6 +317,37 @@ Equipment.prototype.Equip = function()
 		
 		case "LeftWeapon": 
 		document.getElementById("LeftWeapon").innerHTML = "<img src=\"" + this.url+ "\">";
+		var tmp = CurEquipment[3];
+		if(tmp != null)
+		{
+			switch(tmp.stat) 
+			{
+			case 1:					
+				Attack -= tmp.boost;
+				break;
+			case 2:				
+				Defence -= tmp.boost;
+				break;
+			case 3:				
+				Tact -= tmp.boost;
+				break;
+			case 4:				
+				Rage -= tmp.boost;
+				break;
+			case 5:				
+				Magic -= tmp.boost;
+				break;
+			case 6:				
+				Mundane -= tmp.boost;
+				break;
+			case 7:				
+				Fame -= tmp.boost;
+				break;
+			case 8:				
+				Infamy -= tmp.boost;
+				break;			
+			}
+		}
 		CurEquipment[3] = this;
 		var index = PossibleEquipemnt.indexOf(this);
 		PossibleEquipemnt.splice(index, 1);
@@ -231,6 +355,37 @@ Equipment.prototype.Equip = function()
 		
 		case "RightRing": 
 		document.getElementById("RightRing").innerHTML = "<img src=\"" + this.url+ "\">";
+		var tmp = CurEquipment[4];
+		if(tmp != null)
+		{
+			switch(tmp.stat) 
+			{
+			case 1:					
+				Attack -= tmp.boost;
+				break;
+			case 2:				
+				Defence -= tmp.boost;
+				break;
+			case 3:				
+				Tact -= tmp.boost;
+				break;
+			case 4:				
+				Rage -= tmp.boost;
+				break;
+			case 5:				
+				Magic -= tmp.boost;
+				break;
+			case 6:				
+				Mundane -= tmp.boost;
+				break;
+			case 7:				
+				Fame -= tmp.boost;
+				break;
+			case 8:				
+				Infamy -= tmp.boost;
+				break;			
+			}
+		}
 		CurEquipment[4] = this;
 		var index = PossibleEquipemnt.indexOf(this);
 		PossibleEquipemnt.splice(index, 1);
@@ -238,6 +393,37 @@ Equipment.prototype.Equip = function()
 		
 		case "LeftRing": 
 		document.getElementById("LeftRing").innerHTML = "<img src=\"" + this.url+ "\">";
+		var tmp = CurEquipment[5];
+		if(tmp != null)
+		{
+			switch(tmp.stat) 
+			{
+			case 1:					
+				Attack -= tmp.boost;
+				break;
+			case 2:				
+				Defence -= tmp.boost;
+				break;
+			case 3:				
+				Tact -= tmp.boost;
+				break;
+			case 4:				
+				Rage -= tmp.boost;
+				break;
+			case 5:				
+				Magic -= tmp.boost;
+				break;
+			case 6:				
+				Mundane -= tmp.boost;
+				break;
+			case 7:				
+				Fame -= tmp.boost;
+				break;
+			case 8:				
+				Infamy -= tmp.boost;
+				break;			
+			}
+		}
 		CurEquipment[5] = this;
 		var index = PossibleEquipemnt.indexOf(this);
 		PossibleEquipemnt.splice(index, 1);
@@ -245,6 +431,37 @@ Equipment.prototype.Equip = function()
 		
 		case "Boots": 
 		document.getElementById("Boots").innerHTML = "<img src=\"" + this.url+ "\">";
+		var tmp = CurEquipment[6];
+		if(tmp != null)
+		{
+			switch(tmp.stat) 
+			{
+			case 1:					
+				Attack -= tmp.boost;
+				break;
+			case 2:				
+				Defence -= tmp.boost;
+				break;
+			case 3:				
+				Tact -= tmp.boost;
+				break;
+			case 4:				
+				Rage -= tmp.boost;
+				break;
+			case 5:				
+				Magic -= tmp.boost;
+				break;
+			case 6:				
+				Mundane -= tmp.boost;
+				break;
+			case 7:				
+				Fame -= tmp.boost;
+				break;
+			case 8:				
+				Infamy -= tmp.boost;
+				break;			
+			}
+		}
 		CurEquipment[6] = this;
 		var index = PossibleEquipemnt.indexOf(this);
 		PossibleEquipemnt.splice(index, 1);
@@ -252,6 +469,37 @@ Equipment.prototype.Equip = function()
 		
 		case "Amulet": 
 		document.getElementById("Amulet").innerHTML = "<img src=\"" + this.url+ "\">";
+		var tmp = CurEquipment[7];
+		if(tmp != null)
+		{
+			switch(tmp.stat) 
+			{
+			case 1:					
+				Attack -= tmp.boost;
+				break;
+			case 2:				
+				Defence -= tmp.boost;
+				break;
+			case 3:				
+				Tact -= tmp.boost;
+				break;
+			case 4:				
+				Rage -= tmp.boost;
+				break;
+			case 5:				
+				Magic -= tmp.boost;
+				break;
+			case 6:				
+				Mundane -= tmp.boost;
+				break;
+			case 7:				
+				Fame -= tmp.boost;
+				break;
+			case 8:				
+				Infamy -= tmp.boost;
+				break;			
+			}
+		}
 		CurEquipment[7] = this;
 		var index = PossibleEquipemnt.indexOf(this);
 		PossibleEquipemnt.splice(index, 1);

@@ -1,7 +1,8 @@
-document.addEventListener('deviceready', ReadStory, false);
-document.addEventListener('deviceready', ReadTrophys, false);
-document.addEventListener('deviceready', ReadEquipment, false);
-document.addEventListener("pause",  WriteSave, false);
+document.addEventListener('DOMContentLoaded', ReadStory, false);
+document.addEventListener('DOMContentLoaded', ReadTrophys, false);
+document.addEventListener('DOMContentLoaded', ReadEquipment, false);
+//document.addEventListener("pause",  WriteSave, false);
+var done = 0;
 
 //////////////File API Writing
 function WriteSave()
@@ -26,7 +27,13 @@ function onInitFs(fs) {
 
       // Create a new Blob and write it to save.txt.
 	  var saveText = '';
-	  saveText += CurScene;
+	  saveText += CurSceneArray[0];
+	  saveText += '|';
+	  saveText += CurSceneArray[1];
+	  saveText += '|';
+	  saveText += CurSceneArray[2];
+	  saveText += '|';
+	  saveText += CurSceneArray[3];
 	  saveText += '¬';
 	  saveText += locationID;
 	  saveText += '¬';
@@ -46,6 +53,7 @@ function onInitFs(fs) {
 	  saveText += '|';
 	  saveText += Infamy;
 	  saveText += '¬';
+	  
 	  for (i = 0; i< TrophyList.length; i++)
 	  {
 		  if(TrophyList[i].hasTriggered == true)
@@ -53,8 +61,20 @@ function onInitFs(fs) {
 			 saveText += i;
 			 saveText += '|';
 		  }
-	  }
+	  }	  	  
 	  saveText = saveText.substr(0,saveText.length-1);  
+	  
+	  saveText += '¬';
+	  for (i = 0; i< 8; i++)
+	  {
+		  if(CurEquipment[i].name  != "Nothing")
+		  {
+			 saveText += CurEquipment[i].name;
+			 saveText += '|';
+		  }
+	  }	  	  
+	  saveText = saveText.substr(0,saveText.length-1);  
+	  
       var blob = new Blob([ saveText], {type: 'text/plain'});
 
       fileWriter.write(blob);
@@ -91,11 +111,17 @@ function LoadSave(fileEntry)
 				
 				if(aspects.length>1)
 				{								
-					CurScene     = parseInt(aspects[0],10);				
+					var data = aspects[0].split("|");
+					
+					CurSceneArray[0]= parseInt(data[0],10);	
+					CurSceneArray[1]= parseInt(data[1],10);	
+					CurSceneArray[2]= parseInt(data[2],10);	
+					CurSceneArray[3]= parseInt(data[3],10);		
+					
 					locationID   = parseInt(aspects[1],10);
 					
 					
-					var data     = aspects[2].split("|");
+					data    = aspects[2].split("|");
 					Attack  = parseInt(data[0],10);
 					Defence = parseInt(data[1],10);
 					Tact    = parseInt(data[2],10);
@@ -110,6 +136,18 @@ function LoadSave(fileEntry)
 					{
 						TrophyList[parseInt(data[i],10)].Enable();
 					}
+					
+					data    = aspects[4].split("|");
+					for (i = 0; i< data.length; i++)
+					{
+						for (j = 0; j< PossibleEquipemnt.length; j++)
+						{
+							if(PossibleEquipemnt[j].name == data[i])
+								PossibleEquipemnt[j].Equip();
+						}
+					}
+					
+					SceneList[locationID][CurScene].Display();
 				}
 				
 			}
@@ -123,12 +161,46 @@ function LoadSave(fileEntry)
 
 function ReadStory()
 {	
+	
 	for(var i =0; i<4;i++)
 	{
 		SceneList[i] = [];
 	}
-	SetEventsLocation("Bowersvile");
-	loadStory("story/Bowersville.txt",locationID);		
+	
+	//SetEventsLocation("Bowersvile");
+	//loadStory("story/Bowersville.txt",locationID);	
+	
+	//SetEventsLocation("Priceton");
+	//loadStory("story/Princeton.txt",locationID);
+
+	//SetEventsLocation("Golzbergium");
+	//loadStory("story/Golzbergium.txt",locationID);
+	
+	//SetEventsLocation("The Fields Of Devilly");
+	//loadStory("story/TheFieldsOfDevilly.txt",locationID);	
+	
+	$.when(
+		
+		SetEventsLocation("Bowersvile"),
+		loadStory("story/Bowersville.txt",locationID)		
+	).then(function() 
+	{  
+	   SetEventsLocation("Priceton");
+	   loadStory("story/Priceton.txt",locationID);
+	}).then(function() 
+	{  
+	   SetEventsLocation("Golzbergium");
+	   loadStory("story/Golzbergium.txt",locationID);
+	}).then(function() 
+	{  
+	   SetEventsLocation("The Fields Of Devilly");
+	   loadStory("story/TheFieldsOfDevilly.txt",locationID);	
+	}).done(function() 
+	{  		
+		ReadSave()
+	});
+	
+	
 }
 function ReadTrophys()
 {
@@ -142,27 +214,43 @@ function ReadEquipment()
 
 function loadStory(source,locationID)
 {
-	
 	$.ajax
 		(
-			{
+			{				
 				url: source,
 				success: function(data) 
 				{
 					GenerateScenes(data,locationID);					
 				},
-				error: function() 
+				error: function(xhr, status) 
 				{	       
 					alert("Story loading went wrong");
+					switch (xhr.status) 
+					{
+						 case 404:
+							 alert('File not found');
+							 break;
+						 case 500:
+							 alert('Server error');
+							 break;
+						 case 0:
+							 alert('Request aborted'+locationID);
+							 break;
+						 default:
+							 alert('Unknown error ' + status);
+					} 
 				},
-				complete: function()
+				complete : function()
 				{
-					ContinueStory();
+					if(locationID == 1)
+						ContinueStory();
 				},
 				dataType: "text"
 			}
-		);
+		)
+	
 }
+
 
 function loadTrophys(source,HTMLIDList)
 {	

@@ -357,45 +357,45 @@ height :90%;
 background: red;
 text-align:center;
 }
-#helmet {
+#Helmet {
 margin-left:20%;
 width:15%;
 height:10.5%;
 }
-#amulet {
+#Amulet {
 margin-left:10%;
 width:10%;
 height:10%;
 }
-#rightWeapon {
+#RightWeapon {
 width:30%;
 height:20.5%;
 }
-#armour {
+#Armor {
 width:30%;
 height:30.5%;
 }
-#leftWeapon {
+#LeftWeapon {
 width:30%;
 height:20.5%;
 }
-#rightRing {
+#RightRing {
 margin-left:1%;
 width:10%;
 height:10%;
 }
-#boots {
+#Boots {
 margin-left:5%;
 width:17%;
 height:10%;
 }
-#leftRing {
+#LeftRing {
 margin-left:5%;
 width:10%;
 height:10%;
 }
 
-#description {
+#Description {
 border: 1px solid black;
 
 	text-align:center;

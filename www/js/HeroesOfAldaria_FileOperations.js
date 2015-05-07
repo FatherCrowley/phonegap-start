@@ -62,8 +62,9 @@ function onInitFs(fs) {
 			 saveText += i;
 			 saveText += '|';
 		  }
-	  }	  	  
-	  saveText = saveText.substr(0,saveText.length-1);  
+	  }
+	  if(saveText[saveText.length] == '|')
+		saveText = saveText.substr(0,saveText.length-1);  
 	  
 	  saveText += '¬';
 	  for (i = 0; i< 8; i++)
@@ -73,8 +74,9 @@ function onInitFs(fs) {
 			 saveText += CurEquipment[i].name;
 			 saveText += '|';
 		  }
-	  }	  	  
-	  saveText = saveText.substr(0,saveText.length-1);  
+	  }	
+	  if(saveText[saveText.length] == '|')
+		saveText = saveText.substr(0,saveText.length-1);  
 	  
       var blob = new Blob([ saveText], {type: 'text/plain'});
 
@@ -121,7 +123,7 @@ function LoadSave(fileEntry)
 					
 					locationID   = parseInt(aspects[1],10);
 					
-					
+					alert("hi");
 					data    = aspects[2].split("|");
 					Attack  = parseInt(data[0],10);
 					Defence = parseInt(data[1],10);
@@ -131,13 +133,14 @@ function LoadSave(fileEntry)
 					Mundane = parseInt(data[5],10);
 					Fame    = parseInt(data[6],10);
 					Infamy  = parseInt(data[7],10);			
-
+					alert("helo");
 					var data     = aspects[3].split("|");				
 					for (i = 0; i< data.length; i++)
 					{
 						TrophyList[parseInt(data[i],10)].Enable();
 					}
 					
+					alert("hola");
 					data    = aspects[4].split("|");
 					for (i = 0; i< data.length; i++)
 					{

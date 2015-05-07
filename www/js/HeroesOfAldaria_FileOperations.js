@@ -158,7 +158,9 @@ function LoadSave(fileEntry)
 							}
 						}
 					}
-					alert(SceneList[locationID][CurScene]);
+					alert(CurScene);
+					alert(locationID);
+					alert(SceneList[0][0]);
 					SceneList[locationID][CurScene].Display();
 				}
 				

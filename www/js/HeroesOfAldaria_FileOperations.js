@@ -195,7 +195,7 @@ function ReadStory()
 	{  
 	   SetEventsLocation("The Fields Of Devilly");
 	   loadStory("story/TheFieldsOfDevilly.txt",locationID);	
-	}).done(function() 
+	}).then(function() 
 	{  		
 		ReadSave()
 	});

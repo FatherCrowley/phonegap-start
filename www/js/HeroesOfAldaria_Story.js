@@ -61,23 +61,23 @@ function SetEventsLocation(location)
 function ContinueStory()
 {
 	
-var tmp = new Equipment("Nothing", "Just your bear hairy chest", "Armor", "/Empty0.png", 1, 0 , CurScene);	
+var tmp = new Equipment("Nothing", "Just your bear hairy chest", "Armor", "img/Empty0.png", 1, 0 , CurScene);	
 	tmp.Equip();
-	tmp = new Equipment("Nothing", "Your hair counts as one with so much product in it", "Helmet"     , "/Empty1.png", 1, 0 , CurScene);
+	tmp = new Equipment("Nothing", "Your hair counts as one with so much product in it", "Helmet"     , "img/Empty1.png", 1, 0 , CurScene);
 	tmp.Equip();
-	tmp = new Equipment("Nothing", "Your right fist, you call him Righty", "RightWeapon", "/Empty2.png", 1, 0 , CurScene);
+	tmp = new Equipment("Nothing", "Your right fist, you call him Righty", "RightWeapon", "img/Empty2.png", 1, 0 , CurScene);
 	tmp.Equip();
-	tmp = new Equipment("Nothing", "Your left fist, you call him Lefty", "LeftWeapon" , "/Empty3.png", 1, 0 , CurScene);
+	tmp = new Equipment("Nothing", "Your left fist, you call him Lefty", "LeftWeapon" , "img/Empty3.png", 1, 0 , CurScene);
 	tmp.Equip();
-	tmp = new Equipment("Nothing", "Your dont have money for rings", "RightRing"  , "/Empty4.png", 1, 0 , CurScene);
+	tmp = new Equipment("Nothing", "Your dont have money for rings", "RightRing"  , "img/Empty4.png", 1, 0 , CurScene);
 	tmp.Equip();
-	tmp = new Equipment("Nothing", "Your dont have money for rings", "LeftRing"   , "/Empty5.png", 1, 0 , CurScene);
+	tmp = new Equipment("Nothing", "Your dont have money for rings", "LeftRing"   , "img/Empty5.png", 1, 0 , CurScene);
 	tmp.Equip();
-	tmp = new Equipment("Nothing", "Bare feet have their advantages right?", "Boots"      , "/Empty6.png", 1, 0 , CurScene);
+	tmp = new Equipment("Nothing", "Bare feet have their advantages right?", "Boots"      , "img/Empty6.png", 1, 0 , CurScene);
 	tmp.Equip();
-	tmp = new Equipment("Nothing", "Nope, no amulets here", "Amulet"     , "/Empty7.png", 1, 0 , CurScene);
+	tmp = new Equipment("Nothing", "Nope, no amulets here", "Amulet"     , "img/Empty7.png", 1, 0 , CurScene);
 	tmp.Equip();
-	//SceneList[locationID][CurScene].Display();
+	SceneList[locationID][CurScene].Display();
 	UpdateStats();
 	
 }

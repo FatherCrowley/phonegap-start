@@ -92,7 +92,20 @@ function onInitFs(fs) {
 function ReadSave()
 {
 	//alert (cordova.file.dataDirectory + "save.txt");
-	window.resolveLocalFileSystemURL(cordova.file.dataDirectory + "save.txt", LoadSave, fail);
+	window.resolveLocalFileSystemURL(cordova.file.dataDirectory + "save.txt", LoadSave, failReadSave);
+}
+
+function failReadSave(e) 
+{
+	$.when(	
+		
+	).then(function() 
+	{  
+		WriteSave();
+	}).then(function() 
+	{  
+	   ReadSave();
+	});
 }
 
 function fail(e) 
@@ -178,7 +191,8 @@ function LoadSave(fileEntry)
 						SetEventsLocation("The Fields Of Devilly");
 						break;
 					}
-					SceneList[locationID][CurScene].Display();
+					ContinueStory();
+					//SceneList[locationID][CurScene].Display();
 				}
 				
 			}
@@ -228,7 +242,8 @@ function ReadStory()
 	   loadStory(StoryFileLocations[3],locationID);	
 	}).then(function() 
 	{  		
-		//ReadSave();
+		SetEventsLocation("Bowersvile");
+		ReadSave();
 	});
 	
 	
@@ -273,8 +288,7 @@ function loadStory(source,locationID)
 				},
 				complete : function()
 				{
-					if(locationID == 1)
-						ContinueStory();
+					
 				},
 				dataType: "text"
 			}

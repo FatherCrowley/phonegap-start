@@ -42,6 +42,6 @@ Stare at it and repress memories|006|006|-1|0|
 ¬
 007|Its taste reminds you of energy drinks,all-nighters and tears|
 Attack the fish|002|003|1|60|
-Search for a weapon capable of slaying the beast|001|001|-1|0|
+Wander around|000|000|-1|0|
 Cry|004|004|-1|0|
 Stare at it and repress memories|006|006|-1|0|

@@ -1,17 +1,23 @@
-000|You wake up in your house|
-You get up from bed|002|002|-1|115|
-You get down from bed|002|002|-1|115|
-You get left from bed|002|002|-1|115|
-You get right from bed|002|002|-1|115|
+000|You find a peaceful field with a man meditating there|
+Pester him to teach you how to better manage your stress|001|001|-3|0|
+Pester him to teach you how to break bricks with your fists|001|001|-1|0|
+Pester him about something you read in a wizard's tome called "a forgotten semicolon"|001|001|-1|0|
+Have some herbal tea with him|002|002|-3|-10|
 ¬
-001|You are in your bed|
-You get up from bed|002|002|1|115|
-You get down from bed|002|002|1|115|
-You get left from bed|002|002|1|115|
-You get right from bed|002|002|1|115|
+001|The man keeps on meditating, he looks really concentrated on what he's doing|
+You decide to leave him alone|003|003|1|0|
+You get distracted by something shiny|003|003|1|0|
+You decide to play some Heroes Of Aldaria on your portable crystal ball|003|003|1|0|
+You take a nap to make the time pass|003|003|1|0|
 ¬
-002|You|
-You get up from bed|002|002|-1|115|
-You get down from bed|002|002|-1|115|
-You get left from bed|002|002|-1|115|
-You get right from bed|002|002|-1|115|
+002|You have some soothing herbal tea with the mysterious man, you feel your rage melting away|
+You decide to leave him alone|003|003|1|0|
+You get distracted by something shiny|003|003|1|0|
+You decide to play some Heroes Of Aldaria on your portable crustal ball|003|003|1|0|
+You take a nap to make the time pass|003|003|1|0|
+¬
+003|Now there is nothing left to do here|
+Run around in a circle|003|003|-1|0|
+Play in the mud|003|003|-1|0|
+Waste time|003|003|-1|0|
+Stand still with a blank expression on your face|003|003|-1|0|

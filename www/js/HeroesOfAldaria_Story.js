@@ -108,13 +108,13 @@ function MakeChoice(choiceID)
 		for (i = 0; i<PossibleEquipemnt.length; i++)
 		{
 			if(PossibleEquipemnt[i].hasTriggered == false)
-				PossibleEquipemnt[i].Test(CurScene);
+				PossibleEquipemnt[i].Test(CurScene,locationID);
 		}
 		
 		for (i = 0; i<TrophyList.length; i++)
 		{
 			if(TrophyList[i].hasTriggered == false)
-				TrophyList[i].Test(CurScene);
+				TrophyList[i].Test(CurScene,locationID);
 		}
 		UpdateStats();
 	}

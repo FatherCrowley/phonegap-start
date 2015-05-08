@@ -1,17 +1,11 @@
-000|You wake up in your house|
-You get up from bed|002|002|-1|115|
-You get down from bed|002|002|-1|115|
-You get left from bed|002|002|-1|115|
-You get right from bed|002|002|-1|115|
+000|On the top of the mountain you see a sealed stone door covered in runes|
+Try to open the door with brute force|001|001|-1|0|
+Try to open the door with magic|001|001|-1|0|
+Try to open the door by giving it a nasty look|001|001|-1|0|
+Try to open the door with passive-aggressive post-it notes|001|001|-1|0|
 ¬
-001|You are in your bed|
-You get up from bed|002|002|1|115|
-You get down from bed|002|002|1|115|
-You get left from bed|002|002|1|115|
-You get right from bed|002|002|1|115|
-¬
-002|You|
-You get up from bed|002|002|-1|115|
-You get down from bed|002|002|-1|115|
-You get left from bed|002|002|-1|115|
-You get right from bed|002|002|-1|115|
+001|You fail to open the door|
+Try to open the door with brute force|001|001|-1|0|
+Try to open the door with magic|001|001|-1|0|
+Try to open the door by giving it a nasty look|001|001|-1|0|
+Try to open the door with passive-aggressive post-it notes|001|001|-1|0|

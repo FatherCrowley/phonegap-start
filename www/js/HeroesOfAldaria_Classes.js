@@ -133,9 +133,9 @@ function Trophy(Name,TriggerScene,Description,Stat,Boost,HTMLID)
 	this.htmlID = HTMLID;
 	this.hasTriggered = false;
 }
-Trophy.prototype.Test = function(Scene)
-{
-	if(Scene==this.triggerScene)
+Trophy.prototype.Test = function(Scene,LocationID)
+{	
+	if((locationID==this.triggerScene%10)&&( Scene == Math.floor(this.triggerScene/10)))
 	{
 		this.Enable();
 		this.hasTriggered = true;
@@ -541,9 +541,9 @@ Equipment.prototype.Inspect = function()
 	document.getElementById("Description").innerHTML = this.description;
 }
 
-Equipment.prototype.Test = function(Scene)
+Equipment.prototype.Test = function(Scene,LocationID)
 {
-	if(Scene==this.triggerScene)
+	if((locationID==this.triggerScene%10)&&( Scene == Math.floor(this.triggerScene/10)))
 	{
 		this.Equip();
 		this.hasTriggered = true;

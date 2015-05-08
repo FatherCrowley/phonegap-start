@@ -278,7 +278,7 @@ Equipment.prototype.Equip = function()
 		break;
 		
 		case "RightWeapon": 
-		document.getElementById("RightWeapon").innerHTML = "<img src=\"" + this.url+ "\">";
+		//document.getElementById("RightWeapon").innerHTML = "<img src=\"" + this.url+ "\">";
 		var tmp = CurEquipment[2];
 		if(tmp != null)
 		{

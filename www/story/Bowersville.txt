@@ -32,7 +32,7 @@ Stand still with a blank expression on your face|006|006|-1|0|
 Run around in a circle|005|005|-1|0|
 Play in the mud|005|005|-1|0|
 Waste time|005|005|-1|0|
-Stand still with a blank expression on your face|006|006|-1|0|
+Stand still with a blank expression on your face|005|005|-1|0|
 ¬
 006|After some time passes you decide to...|
 Go Shopping|001|001|-1|0|

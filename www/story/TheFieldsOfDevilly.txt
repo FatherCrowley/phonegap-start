@@ -1,17 +1,47 @@
-000|You wake up in your house|
-You get up from bed|002|002|-1|115|
-You get down from bed|002|002|-1|115|
-You get left from bed|002|002|-1|115|
-You get right from bed|002|002|-1|115|
+000|On the fields you find a magical orange fish performing behaviours in a random order|
+Attack it|002|003|1|60|
+Search for a weapon capable of slaying the beast|001|001|-1|0|
+Cry|004|004|-1|0|
+Stare at it and repress memories|006|006|-1|0|
 ¬
-001|You are in your bed|
-You get up from bed|002|002|1|115|
-You get down from bed|002|002|1|115|
-You get left from bed|002|002|1|115|
-You get right from bed|002|002|1|115|
+001|You find a peculiar sword shaped like a chicken leg on the fields|
+Attack the beast|002|003|1|0|
+See if it tastes like chicken|007|007|1|0|
+Wander around|000|000|1|0|
+Stare at it and repress more memories|006|006|1|0|
 ¬
-002|You|
-You get up from bed|002|002|-1|115|
-You get down from bed|002|002|-1|115|
-You get left from bed|002|002|-1|115|
-You get right from bed|002|002|-1|115|
+002|As you raise you sword to strike a gigantic piranha descends from the sky and eats the orange fish|
+Celebrate|002|003|1|0|
+Be gratefull its all over|005|005|1|0|
+Realize you miss it already|005|005|1|0|
+Repress all the memories memories|006|006|1|0|
+¬
+003|The fish dashes out of the way of your clumsy blows|
+Attack it again|002|003|1|60|
+Search for a weapon capable of slaying the beast|001|001|-1|0|
+Cry|004|004|-1|0|
+Stare at it and repress memories|006|006|-1|0|
+¬
+004|After you finish crying you steel yourself and|
+Attack it|002|003|1|60|
+Search for a weapon capable of slaying the beast|001|001|-1|0|
+Cry some more|004|004|-1|0|
+Stare at it and repress memories|006|006|-1|0|
+¬
+005|There is nothing left to do on the Fields Of Devilly|
+Run around in a circle|005|005|-1|0|
+Play in the mud|005|005|-1|0|
+Waste time|005|005|-1|0|
+Stand still with a blank expression on your face|005|005|-1|0|
+¬
+006|No matter how hard you try, some things can never be forgotten|
+Attack the fish|002|003|1|60|
+Search for a weapon capable of slaying the beast|001|001|-1|0|
+Cry|004|004|-1|0|
+Stare at it and repress memories|006|006|-1|0|
+¬
+007|Its taste reminds you of energy drinks,all-nighters and tears|
+Attack the fish|002|003|1|60|
+Search for a weapon capable of slaying the beast|001|001|-1|0|
+Cry|004|004|-1|0|
+Stare at it and repress memories|006|006|-1|0|

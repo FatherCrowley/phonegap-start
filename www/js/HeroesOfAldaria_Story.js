@@ -60,7 +60,7 @@ function SetEventsLocation(location)
 function ContinueStory()
 {
 	
-var tmp = new Equipment("Nothing", "Just your bear hairy chest", "Armor"      , "/Empty0.png", 1, 0 , CurScene);	
+var tmp = new Equipment("Nothing", "Just your bear hairy chest", "Armor", "/Empty0.png", 1, 0 , CurScene);	
 	tmp.Equip();
 	tmp = new Equipment("Nothing", "Your hair counts as one with so much product in it", "Helmet"     , "/Empty1.png", 1, 0 , CurScene);
 	tmp.Equip();

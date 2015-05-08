@@ -1,17 +1,41 @@
-﻿000|You wake up in your house|
-You get up from bed|002|002|-1|115|
-You get down from bed|002|002|-1|115|
-You get left from bed|002|002|-1|115|
-You get right from bed|002|002|-1|115|
+﻿000|You are a mighty hero and you find yourself in the town of Bowerville.What do you do|
+Go Shopping|001|001|-1|0|
+Fall Asleep in the park|003|003|-1|0|
+Slay a random chicken|002|004|1|11|
+Stand still with a blank expression on your face|006|006|-1|0|
 ¬
-001|You are in your bed|
-You get up from bed|002|002|1|115|
-You get down from bed|002|002|1|115|
-You get left from bed|002|002|1|115|
-You get right from bed|002|002|1|115|
+001|While shopping you realize you have no money, in shame you leave the mall, vowing never to return|
+Return to the mall|001|001|-1|0|
+Fall Asleep in the park|003|003|-1|0|
+Slay a random chicken|002|004|1|11|
+Stand still with a blank expression on your face|000|000|-1|0|
 ¬
-002|You|
-You get up from bed|002|002|-1|115|
-You get down from bed|002|002|-1|115|
-You get left from bed|002|002|-1|115|
-You get right from bed|002|002|-1|115|
+002|You have slain a poor defenceless chicken...you monster! Nobody in the village wants to have anything to do with you|
+Think about what you did|005|005|-1|0|
+Tell yourself everything will be all-right |005|005|-1|0|
+Start crying|005|005|-1|0|
+Stand still with a blank expression on your face|006|006|-1|0|
+¬
+003|When you wake up a mysterious man offers to sell you a mobile application design book|
+Buy the arcane tome|000|000|-1|0|
+Steal the arcane tome|000|000|-8|10|
+Slay a random chicken|002|004|1|11|
+You stand still with a blank expression on your face|006|006|-1|0|
+¬
+004|You have failed in the simple task of slaying a chicken... nobody in the town wants to speak to you|
+Think about what you did|005|005|-1|0|
+Tell yourself everything will be all-right |005|005|-1|0|
+Start crying|005|005|-1|0|
+Stand still with a blank expression on your face|006|006|-1|0|
+¬
+005|There is nothing left to do in Bowerville|
+Run around in a circle|005|005|-1|0|
+Play in the mud|005|005|-1|0|
+Waste time|005|005|-1|0|
+Stand still with a blank expression on your face|006|006|-1|0|
+¬
+006|After some time passes you decide to...|
+Go Shopping|001|001|-1|0|
+Fall Asleep in the park|003|003|-1|0|
+Slay a random chicken|002|004|1|11|
+Stand still with a blank expression on your face|006|006|-1|0|

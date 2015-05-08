@@ -64,10 +64,10 @@ html, body
 	 border-color: transparent; 
 	 outline: 0;
 	 position: absolute; 
-	 left: 104.5%; 
-	 top: 5%; 
+	 left: 4.5%; 
+	 top: 0%; 
 	 width : 85%; 
-	 height :17.5%;	
+	 height :25%;	
 	 font-size: 8vw;
 }
 
@@ -77,8 +77,8 @@ html, body
 	 border-color: transparent; 
 	 outline: 0;
 	 position: absolute; 
-	 left: 104.5%; 
-	 top: 15%; 
+	 left: 4.5%; 
+	 top: 25%; 
 	 width : 85%; 
 	 height :17.5%;	
 	 font-size: 8vw;
@@ -90,8 +90,8 @@ html, body
 	 border-color: transparent; 
 	 outline: 0;
 	 position: absolute; 
-	 left: 104.5%; 
-	 top: 25%; 
+	 left: 4.5%; 
+	 top: 50%; 
 	 width : 85%; 
 	 height :17.5%;	
 	 font-size: 8vw;
@@ -103,8 +103,8 @@ html, body
 	 border-color: transparent; 
 	 outline: 0;
 	 position: absolute; 
-	 left: 104.5%; 
-	 top: 35%; 
+	 left: 4.5%; 
+	 top: 75%; 
 	 width : 85%; 
 	 height :17.5%;	
 	 font-size: 8vw;
@@ -349,16 +349,17 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 #TrophyText
 {
-	border: 1px solid black;
+	
 	text-align:center;
 	position: absolute; 
 	left: 204.5%; 
-	top: 159%; 
+	top: 162%; 
 	width : 69%; 
-	height :27%;;	
+	height :23%;;	
 	padding:10%;
 	margin:auto;
-	background: red;
+	background-image: url("parchment.png");
+	background-size: 100% 100%;
 }
 
 #Story
@@ -369,7 +370,8 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 	width : 69%; 
 	height :70%;;	
 	padding:10%;
-	background: red;
+	background-image: url("parchment.png");
+	background-size: 100% 100%;
 	text-align:center;
 }
 
@@ -392,49 +394,105 @@ top: 204%;
 width : 96%; 		 
 height :90%;
 
-background: red;
+background: transparent;
 text-align:center;
 }
 #Helmet {
 margin-left:20%;
 width:15%;
 height:10.5%;
+background-image: url("parchment.png");
+background-size: 100% 100%;
+background-color: transparent; 
+border-color: transparent; 
+outline: 0;
+background-repeat: no-repeat;
+font-size: 50%;
 }
 #Amulet {
-margin-left:10%;
-width:10%;
+margin-left:7%;
+width:13%;
 height:10%;
+background-image: url("parchment.png");
+background-size: 100% 100%;
+background-color: transparent; 
+border-color: transparent; 
+outline: 0;
+background-repeat: no-repeat;
+font-size: 50%;
 }
 #RightWeapon {
 width:30%;
 height:20.5%;
+background-image: url("parchment.png");
+background-size: 100% 100%;
+background-color: transparent; 
+border-color: transparent; 
+outline: 0;
+background-repeat: no-repeat;
+font-size: 75%;
 }
 #Armor {
 width:30%;
 height:30.5%;
+background-image: url("parchment.png");
+background-size: 100% 100%;
+background-color: transparent; 
+border-color: transparent; 
+outline: 0;
+background-repeat: no-repeat;
+font-size: 100%;
 }
 #LeftWeapon {
 width:30%;
 height:20.5%;
+background-image: url("parchment.png");
+background-size: 100% 100%;
+background-color: transparent; 
+border-color: transparent; 
+outline: 0;
+background-repeat: no-repeat;
+font-size: 75%;
 }
 #RightRing {
 margin-left:1%;
 width:10%;
 height:10%;
+background-image: url("parchment.png");
+background-size: 100% 100%;
+background-color: transparent; 
+border-color: transparent; 
+outline: 0;
+background-repeat: no-repeat;
+font-size: 50%;
 }
 #Boots {
 margin-left:5%;
 width:17%;
 height:10%;
+background-image: url("parchment.png");
+background-size: 100% 100%;
+background-color: transparent; 
+border-color: transparent; 
+outline: 0;
+background-repeat: no-repeat;
+font-size: 50%;
 }
 #LeftRing {
 margin-left:5%;
 width:10%;
 height:10%;
+background-image: url("parchment.png");
+background-size: 100% 100%;
+background-color: transparent; 
+border-color: transparent; 
+outline: 0;
+background-repeat: no-repeat;
+font-size: 50%;
 }
 
 #Description {
-border: 1px solid black;
+
 
 	text-align:center;
 	
@@ -445,6 +503,20 @@ border: 1px solid black;
 	padding:10%;
 	margin:auto;
 	margin-top:10%;
-	background: orange;
+	background-image: url("parchment.png");
+	background-size: 100% 100%;
 
+}
+
+#statBG{
+background-color: transparent; 
+border-color: transparent; 
+outline: 0;
+position: absolute; 
+left: 101.5%; 
+top: 5%; 
+width : 95%; 
+height :35.5%;	
+background-image: url("parchment.png");
+background-size: 100% 100%;
 }

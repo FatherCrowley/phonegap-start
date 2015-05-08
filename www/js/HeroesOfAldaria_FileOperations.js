@@ -91,7 +91,7 @@ function onInitFs(fs) {
 //File API Reading 
 function ReadSave()
 {
-	alert (cordova.file.dataDirectory + "save.txt");
+	//alert (cordova.file.dataDirectory + "save.txt");
 	window.resolveLocalFileSystemURL(cordova.file.dataDirectory + "save.txt", LoadSave, fail);
 }
 
@@ -112,7 +112,7 @@ function LoadSave(fileEntry)
 			{
 				alert(this.result);				
 				var aspects  = this.result.split("¬");
-				alert(aspects.length);
+				//alert(aspects.length);
 				if(aspects.length>1)
 				{								
 					var data = aspects[0].split("|");
@@ -145,7 +145,7 @@ function LoadSave(fileEntry)
 						}
 					}
 					
-					alert("hola");					
+					//alert("hola");					
 					
 					if(aspects[3]!= "")
 					{
@@ -159,9 +159,9 @@ function LoadSave(fileEntry)
 							}
 						}
 					}
-					alert(CurScene);
-					alert(locationID);
-					alert(SceneList[0][0]);
+					//alert(CurScene);
+					//alert(locationID);
+					//alert(SceneList[0][0]);
 					
 					switch(locationID)
 					{

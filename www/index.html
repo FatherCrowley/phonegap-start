@@ -65,7 +65,7 @@
 	<button id = "B4" onclick="SetEventsLocation('Priceton')"><img  id="Priceton" src="img/Loc3.png" width = 100%; height = 100%></button>
         
         <!-- this is the stats code -->
-         
+    <div id = "statBG">     
     <div id= "S1" class="flex-container">
 		<div class ="flex-item1"><p class="Left">Attack</p></div>
 		<div id= "SR1" class ="flex-item2"><input type = "range" min = "0" max = "100" value = "50" readonly = "readonly" /></div>
@@ -89,10 +89,9 @@
 		<div id= "SR4" class ="flex-item2"><input type = "range" min = "0" max = "100" value = "50" readonly = "readonly" /></div>
 		<div class ="flex-item3"><p class="Right">Infamy</p></div>
 		</div>
-    
+    </div>        
 	<button id = "B15" onclick="SeverSync()">Sync From Server</button> 
     <button id = "B5" onclick="ResetChar()">Reset Everything</button> 
-        
 		 <!-- this is the trophy code -->
     <div id="accordion">
           <h3 style ="text-align:center">Bronze Tier Trophies</h3>
@@ -129,7 +128,7 @@
         
         	 <!-- this is the inventory code -->
         <div id="inventory">
-        <button id="Helmet"      onclick ="DisplayEquipment(1)"><img src="#"> </button>
+        <button id="Helmet"      onclick ="DisplayEquipment(1)">Helmet </button>
         <button id="Amulet"      onclick ="DisplayEquipment(7)">Amulet </button><br/>
         <button id="RightWeapon" onclick ="DisplayEquipment(2)">Right Weapon </button>
         <button id="Armor"      onclick ="DisplayEquipment(0)">Armour </button>

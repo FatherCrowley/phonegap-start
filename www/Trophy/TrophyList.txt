@@ -1,7 +1,7 @@
-﻿Chicken Saver|002|Congrats|1|100¬
+﻿Chicken Slayer|0020|You have murdered a poor defenceless chicken but at least you got to practice your combat skills...attack increased for the rest of your adventure... you monster |1|100¬
 Silver Tongue |002|Congrats|1|100¬
 Undead|002|Congrats|1|100¬
-Fish Slayer|002|Congrats|1|100¬
+Fish Slayer|0021|You have bested the orange fish. Nobody understands how... not even you, but enjoy you boots to attack for the rest of your quest|1|100¬
 Plot Shield|002|Congrats|1|100¬
 Ether Mage|002|Congrats|1|100¬
 Dragon Slayer|002|Congrats|1|100¬

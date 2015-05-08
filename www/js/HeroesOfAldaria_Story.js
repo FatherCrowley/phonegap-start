@@ -14,7 +14,7 @@ var SceneList =  [[]];
 var TrophyList = [];
 var CurEquipment = Array(8);
 var PossibleEquipemnt = [];
-var hasLoadedSave = false;
+var hasLoadedSave = true;
 var StoryFileLocations = ["story/Bowersville.txt","story/Priceton.txt","story/Golzbergium.txt","story/TheFieldsOfDevilly.txt"];
 function SetEventsLocation(location)
 {

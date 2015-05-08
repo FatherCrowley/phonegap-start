@@ -1,3 +1,5 @@
+document.addEventListener('deviceready', StartInterval, false);
+
 var charLocation; 
 var locationID = 0;
 var Attack  = 10;
@@ -192,13 +194,14 @@ function load()
 	{
 		 if(ceneList[3][0]!= null)
 		 {
-			clearInterval(_intervalId);
+			
 			document.getElementById("dynamicButton1").disabled = false;
 			document.getElementById("dynamicButton2").disabled = false;
 			document.getElementById("dynamicButton3").disabled = false;
 			document.getElementById("dynamicButton4").disabled = false;
 			SetEventsLocation("Bowersvile");
 			ReadSave();
+			clearInterval(_intervalId);
 		 }
 	}
 	else 
@@ -211,4 +214,7 @@ function load()
 	}
 }
 
+function StartInterval()
+{
 _intervalId = setInterval(load(), 1000 / 60);
+}

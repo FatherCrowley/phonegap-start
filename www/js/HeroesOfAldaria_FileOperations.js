@@ -97,14 +97,10 @@ function ReadSave()
 
 function failReadSave(e) 
 {
-	$.when(	
-		
+	$.when(WriteSave()		
 	).then(function() 
 	{  
-		WriteSave();
-	}).then(function() 
-	{  
-	   ReadSave();
+		ReadSave();
 	});
 }
 

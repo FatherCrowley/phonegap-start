@@ -1,3 +1,3 @@
-﻿ChickenLegSword|A mysterious weapon forged in the shape of a chicken leg... Beware of Piranha, slightly increases Attack |RightWeapon|Equipment/ChickenSword.png|1|50|0011
+﻿ChickenLegSword|A mysterious weapon forged in the shape of a chicken leg... Beware of Piranha, slightly increases Attack |RightWeapon|Equipment/ChickenSword.jpg|1|50|0011
 ¬
 EpicSword|A weapon of legend.It is said to have been wielded by Ser Byron the legendary dragon slayer.Greatly increases Attack|LeftWeapon|Equipment/EpicSword.png|1|500|0013

@@ -14,8 +14,9 @@ var SceneList =  [[]];
 var TrophyList = [];
 var CurEquipment = Array(8);
 var PossibleEquipemnt = [];
-var hasLoadedSave = true;
+var hasLoadedSave = false;
 var StoryFileLocations = ["story/Bowersville.txt","story/Priceton.txt","story/Golzbergium.txt","story/TheFieldsOfDevilly.txt"];
+var _intervalId;
 function SetEventsLocation(location)
 {
 	CurSceneArray[locationID] = CurScene;
@@ -84,8 +85,7 @@ var tmp = new Equipment("Nothing", "Just your bear hairy chest", "Armor", "img/E
 
 function MakeChoice(choiceID)
 {	
-	if(hasLoadedSave)
-	{
+	
 		switch(choiceID)
 		{
 			case 1:
@@ -118,13 +118,7 @@ function MakeChoice(choiceID)
 			if(TrophyList[i].hasTriggered == false)
 				TrophyList[i].Test(CurScene,locationID);
 		}
-		UpdateStats();
-	}
-	else 
-	{	
-	ReadSave();
-	hasLoadedSave = true;
-	}
+		UpdateStats();	
 }
 
 function DisplayTropy(ID)
@@ -190,3 +184,31 @@ function SeverSync()
 	StoryFileLocations = ["story/Bowersville.txt","story/Priceton.txt","story/GolzbergiumOz.txt","story/TheFieldsOfDevilly.txt"];
 	ReadStory();
 }
+
+
+function load()
+{
+	if(hasLoadedSave)
+	{
+		 if(ceneList[3][0]!= null)
+		 {
+			clearInterval(_intervalId);
+			document.getElementById("dynamicButton1").disabled = false;
+			document.getElementById("dynamicButton2").disabled = false;
+			document.getElementById("dynamicButton3").disabled = false;
+			document.getElementById("dynamicButton4").disabled = false;
+			SetEventsLocation("Bowersvile");
+			ReadSave();
+		 }
+	}
+	else 
+	{
+		document.getElementById("dynamicButton1").disabled = true;
+		document.getElementById("dynamicButton2").disabled = true;
+		document.getElementById("dynamicButton3").disabled = true;
+		document.getElementById("dynamicButton4").disabled = true;
+		hasLoadedSave = true;
+	}
+}
+
+_intervalId = setInterval(load(), 1000 / 60);

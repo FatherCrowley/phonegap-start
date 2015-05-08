@@ -240,10 +240,6 @@ function ReadStory()
 	{  
 	   SetEventsLocation("The Fields Of Devilly");
 	   loadStory(StoryFileLocations[3],locationID);	
-	}).then(function() 
-	{  		
-		SetEventsLocation("Bowersvile");
-		ReadSave();
 	});
 	
 	

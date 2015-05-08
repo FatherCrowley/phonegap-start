@@ -280,7 +280,8 @@ function loadStory(source,locationID)
 				},
 				complete : function()
 				{
-					alert(SceneList[locationID]);
+					alert("finished loading " + locationID);
+					
 				},
 				dataType: "text"
 			}

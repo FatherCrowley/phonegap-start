@@ -1,5 +1,3 @@
-document.addEventListener('deviceready', StartInterval, false);
-
 var charLocation; 
 var locationID = 0;
 var Attack  = 10;
@@ -18,7 +16,6 @@ var CurEquipment = Array(8);
 var PossibleEquipemnt = [];
 var hasLoadedSave = false;
 var StoryFileLocations = ["story/Bowersville.txt","story/Priceton.txt","story/Golzbergium.txt","story/TheFieldsOfDevilly.txt"];
-var _intervalId;
 function SetEventsLocation(location)
 {
 	CurSceneArray[locationID] = CurScene;
@@ -80,14 +77,15 @@ var tmp = new Equipment("Nothing", "Just your bear hairy chest", "Armor", "img/E
 	tmp.Equip();
 	tmp = new Equipment("Nothing", "Nope, no amulets here", "Amulet"     , "img/Empty7.png", 1, 0 , CurScene);
 	tmp.Equip();
-	SceneList[locationID][CurScene].Display();
+	//SceneList[locationID][CurScene].Display();
 	UpdateStats();
 	
 }
 
 function MakeChoice(choiceID)
 {	
-	
+	if(hasLoadedSave)
+	{
 		switch(choiceID)
 		{
 			case 1:
@@ -120,7 +118,13 @@ function MakeChoice(choiceID)
 			if(TrophyList[i].hasTriggered == false)
 				TrophyList[i].Test(CurScene,locationID);
 		}
-		UpdateStats();	
+		UpdateStats();
+	}
+	else 
+	{	
+	ReadSave();
+	hasLoadedSave = true;
+	}
 }
 
 function DisplayTropy(ID)
@@ -185,37 +189,4 @@ function SeverSync()
 {
 	StoryFileLocations = ["story/Bowersville.txt","story/Priceton.txt","story/GolzbergiumOz.txt","story/TheFieldsOfDevilly.txt"];
 	ReadStory();
-}
-
-
-function load()
-{
-	if(hasLoadedSave)
-	{
-		//alert ("hi");
-		 if(ceneList[3][0]!= null)
-		 {
-			
-			document.getElementById("dynamicButton1").disabled = false;
-			document.getElementById("dynamicButton2").disabled = false;
-			document.getElementById("dynamicButton3").disabled = false;
-			document.getElementById("dynamicButton4").disabled = false;
-			SetEventsLocation("Bowersvile");
-			ReadSave();
-			clearInterval(_intervalId);
-		 }
-	}
-	else 
-	{
-		document.getElementById("dynamicButton1").disabled = true;
-		document.getElementById("dynamicButton2").disabled = true;
-		document.getElementById("dynamicButton3").disabled = true;
-		document.getElementById("dynamicButton4").disabled = true;
-		hasLoadedSave = true;
-	}
-}
-
-function StartInterval()
-{
-_intervalId = setInterval(load(), 1000 / 60);
 }

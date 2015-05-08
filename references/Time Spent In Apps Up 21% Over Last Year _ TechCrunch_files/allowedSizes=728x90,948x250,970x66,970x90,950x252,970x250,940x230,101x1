@@ -1,3 +1,0 @@
-document.write('<a href="http://uk.at.atwola.com/?adlink/1065/3949367/93311108/225/AdId=12166760;BnId=1;itime=552702679;impref=14305527023053506271;imprefseq=124693646730131660;imprefts=1430552702;" target="_blank"><img src="http://aka-cdn-ns.adtech.de/images/90/Ad0St1Sz225Sq0V2Id107666522.jpg" border="0" alt="Advertisement" width="728" height="90"/></a>');
-  
-ADTECH_getNumberOfAddonBanners = function() { return 0; }

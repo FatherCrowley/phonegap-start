@@ -181,7 +181,7 @@ function ReadStory()
 	{
 		SceneList[i] = [];
 	}
-	
+	alert(StoryFileLocations[0]);
 	//SetEventsLocation("Bowersvile");
 	//loadStory("story/Bowersville.txt",locationID);	
 	

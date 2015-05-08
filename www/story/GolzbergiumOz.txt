@@ -1,0 +1,17 @@
+000|On the top of the mountain you see a sealed stone door covered in runes|
+Try to open the door with brute force|001|001|-1|0|
+Try to open the door with magic|001|001|-1|0|
+Try to open the door by giving it a nasty look|001|001|-1|0|
+Try to open the door with passive-aggressive post-it notes|001|001|-1|0|
+¬
+001|You fail to open the door|
+Try to open the door with brute force|001|001|-1|0|
+Try to open the door with magic|001|001|-1|0|
+Try to open the door by giving it a nasty look|001|001|-1|0|
+Try to open the door with passive-aggressive post-it notes|002|002|-1|0|
+¬
+002|That surprisingly does nothing|
+Try to open the door with brute force|001|001|-1|0|
+Try to open the door with magic|001|001|-1|0|
+Try to open the door by giving it a nasty look|001|001|-1|0|
+Try to open the door with passive-aggressive post-it notes|001|001|-1|0|

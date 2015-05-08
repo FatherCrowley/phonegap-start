@@ -193,23 +193,23 @@ function ReadStory()
 	
 	//SetEventsLocation("The Fields Of Devilly");
 	//loadStory("story/TheFieldsOfDevilly.txt",locationID);	
-	
+
 	$.when(
 		
 		SetEventsLocation("Bowersvile"),
-		loadStory("story/Bowersville.txt",locationID)		
+		loadStory(StoryFileLocations[0],locationID)		
 	).then(function() 
 	{  
 	   SetEventsLocation("Priceton");
-	   loadStory("story/Priceton.txt",locationID);
+	   loadStory(StoryFileLocations[1],locationID);
 	}).then(function() 
 	{  
 	   SetEventsLocation("Golzbergium");
-	   loadStory("story/Golzbergium.txt",locationID);
+	   loadStory(StoryFileLocations[2],locationID);
 	}).then(function() 
 	{  
 	   SetEventsLocation("The Fields Of Devilly");
-	   loadStory("story/TheFieldsOfDevilly.txt",locationID);	
+	   loadStory(StoryFileLocations[3],locationID);	
 	}).then(function() 
 	{  		
 		//ReadSave();

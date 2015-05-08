@@ -15,6 +15,7 @@ var TrophyList = [];
 var CurEquipment = Array(8);
 var PossibleEquipemnt = [];
 var hasLoadedSave = false;
+var StoryFileLocations = ["story/Bowersville.txt","story/Priceton.txt","story/Golzbergium.txt","story/TheFieldsOfDevilly.txt"];
 function SetEventsLocation(location)
 {
 	CurSceneArray[locationID] = CurScene;
@@ -150,5 +151,37 @@ function CalculateSlider(ID,Stat1,Stat2)
 
 function ResetChar()
 {
+	Attack  = 10;
+	Defence = 10;
+	Tact    = 10;
+	Rage    = 10;
+	Magic   = 10;
+	Mundane = 10;
+	Fame    = 10;
+	Infamy  = 10;
+	CurScene = 0;
+	CurSceneArray = [0,0,0,0];
 	console.log("You reset Everything! you bastard");
+	TrophyList = [];
+	CurEquipment = Array(8);
+	PossibleEquipemnt = [];
+	
+	$.when(
+	ReadTrophys();		
+	).then(function() 
+	{  
+	ReadEquipment();
+	}).then(function() 
+	{  
+	  ContinueStory();
+	}).then(function() 
+	{  
+	   alert("Reset Susccesfull");
+	};	
+}
+
+function SeverSync()
+{
+	StoryFileLocations = ["story/Bowersville.txt","story/Priceton.txt","story/GolzbergiumOz.txt","story/TheFieldsOfDevilly.txt"];
+	ReadStory();
 }

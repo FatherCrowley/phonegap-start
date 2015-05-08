@@ -19,7 +19,7 @@ function onInitFs(fs) {
     fileEntry.createWriter(function(fileWriter) {
 
       fileWriter.onwriteend = function(e) {
-        console.log('Write completed.');
+        alert('Write completed.');
       };
 
       fileWriter.onerror = function(e) {

@@ -280,7 +280,7 @@ function loadStory(source,locationID)
 				},
 				complete : function()
 				{
-					
+					alert("finished laoding " + locationID);
 				},
 				dataType: "text"
 			}

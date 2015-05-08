@@ -192,6 +192,7 @@ function load()
 {
 	if(hasLoadedSave)
 	{
+		//alert ("hi");
 		 if(ceneList[3][0]!= null)
 		 {
 			

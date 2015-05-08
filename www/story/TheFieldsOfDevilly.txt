@@ -11,7 +11,7 @@ Wander around|000|000|1|0|
 Stare at it and repress more memories|006|006|1|0|
 ¬
 002|As you raise you sword to strike a gigantic piranha descends from the sky and eats the orange fish|
-Celebrate|002|003|1|0|
+Celebrate|005|005|1|0|
 Be gratefull its all over|005|005|1|0|
 Realize you miss it already|005|005|1|0|
 Repress all the memories memories|006|006|1|0|

@@ -77,7 +77,7 @@ var tmp = new Equipment("Nothing", "Just your bear hairy chest", "Armor", "/Empt
 	tmp.Equip();
 	tmp = new Equipment("Nothing", "Nope, no amulets here", "Amulet"     , "/Empty7.png", 1, 0 , CurScene);
 	tmp.Equip();
-	SceneList[locationID][CurScene].Display();
+	//SceneList[locationID][CurScene].Display();
 	UpdateStats();
 	
 }

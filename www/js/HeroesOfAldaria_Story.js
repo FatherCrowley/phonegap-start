@@ -167,7 +167,7 @@ function ResetChar()
 	PossibleEquipemnt = [];
 	
 	$.when(
-	ReadTrophys();		
+	ReadTrophys()		
 	).then(function() 
 	{  
 	ReadEquipment();
@@ -177,7 +177,7 @@ function ResetChar()
 	}).then(function() 
 	{  
 	   alert("Reset Susccesfull");
-	};	
+	});	
 }
 
 function SeverSync()

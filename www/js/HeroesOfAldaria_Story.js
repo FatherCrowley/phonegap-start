@@ -76,7 +76,8 @@ var tmp = new Equipment("Nothing", "Just your bear hairy chest", "Armor", "/Empt
 	tmp = new Equipment("Nothing", "Bare feet have their advantages right?", "Boots"      , "/Empty6.png", 1, 0 , CurScene);
 	tmp.Equip();
 	tmp = new Equipment("Nothing", "Nope, no amulets here", "Amulet"     , "/Empty7.png", 1, 0 , CurScene);
-	tmp.Equip();	
+	tmp.Equip();
+	SceneList[locationID][CurScene].Display();
 	UpdateStats();
 	
 }
@@ -176,8 +177,12 @@ function ResetChar()
 	  ContinueStory();
 	}).then(function() 
 	{  
-	   alert("Reset Susccesfull");
+		SetEventsLocation("Bowersville");
+		SceneList[locationID][CurScene].Display();
+	    alert("Reset Susccesfull");
 	});	
+	
+	
 }
 
 function SeverSync()

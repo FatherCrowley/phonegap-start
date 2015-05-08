@@ -102,7 +102,7 @@ function fail(e)
 
 function LoadSave(fileEntry)
 {
-	SceneList[0][0].Display();
+	//SceneList[0][0].Display();
 	fileEntry.file
 	(
 		function(file) 
@@ -162,6 +162,22 @@ function LoadSave(fileEntry)
 					alert(CurScene);
 					alert(locationID);
 					alert(SceneList[0][0]);
+					
+					switch(locationID)
+					{
+						case 0:
+						SetEventsLocation("Bowersvile");
+						break;
+						case 1:
+						SetEventsLocation("Priceton");
+						break;
+						case 2:
+						SetEventsLocation("Golzbergium");
+						break;
+						case 3:
+						SetEventsLocation("The Fields Of Devilly");
+						break;
+					}
 					SceneList[locationID][CurScene].Display();
 				}
 				
